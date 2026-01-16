@@ -3,138 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Central Nervous System Infections </title>
+  <title>Central Nervous System Infections</title>
+
+  <!-- Match bacteria-index styling -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
 </head>
-<body>
-  <!-- Top header bar (same as other pages) -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+
+<body class="bacteria-page">
+  <header>
+    <div class="container">
+      <h1>Central Nervous System Infections</h1>
     </div>
   </header>
 
-  <main class="outer-wrapper">
-    <div class="page-container page-container--list">
+  <div class="back-buttons">
+    <button class="back-button" onclick="window.location.href='decision-support.html'">
+      ← Back to Decision Support
+    </button>
+  </div>
 
-      <a class="chip-link" href="decision-support.html">← Back to Decision Support</a>
+  <section id="bacteria-list">
+    <div class="container">
 
-      <h1 class="page-heading page-heading--center">Central Nervous System Infections </h1>
-
-      <div class="list-card">
-
-        <a class="list-row" href="CNS_community_meningits.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Community Acquired Meningitis</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="CNS_community_meningits_50+.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Community Acquired Meningitis - >50 years old or immunocompromised</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="CNS_postsurgical.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Post Surgical or Device Associated Meningitis</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="CNS_brain_abscess_community_acquired.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Brain Abscess - Community Acquired</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="CNS_brain_abscess_postsurgical.html">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Brain Abscess - Post Surgical Procedure</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-
-      </div>
+      <ul class="bacteria-items">
+        <li><a href="CNS_community_meningits.html">Community Acquired Meningitis</a></li>
+        <li><a href="CNS_community_meningits_50+.html">Community Acquired Meningitis - &gt;50 years old or immunocompromised</a></li>
+        <li><a href="CNS_postsurgical.html">Post Surgical or Device Associated Meningitis</a></li>
+        <li><a href="CNS_brain_abscess_community_acquired.html">Brain Abscess - Community Acquired</a></li>
+        <li><a href="CNS_brain_abscess_postsurgical.html">Brain Abscess - Post Surgical Procedure</a></li>
+      </ul>
     </div>
-  </main>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
