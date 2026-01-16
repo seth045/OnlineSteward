@@ -4,46 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Necrotizing Fasciitis (groin/perianal)</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
 
-  <!-- Header (keep consistent with your app) -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+  <!-- Match list-page styling -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
+
+  <!-- Orange theme + "list-like" accordion rows -->
+  <style>
+    .indication-card {
+      background: #fff;
+      border: 1px solid #e6edf7;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .indication-card .acc-item + .acc-item {
+      border-top: 1px solid #e6edf7;
+    }
+
+    .indication-card .acc-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      cursor: pointer;
+      text-align: left;
+      font: inherit;
+    }
+
+    .indication-card .acc-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #f97316; /* orange */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 42px;
+    }
+    .indication-card .acc-icon svg { display: block; }
+
+    .indication-card .acc-label {
+      flex: 1;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .indication-card .acc-chevron {
+      width: 18px;
+      height: 18px;
+      color: #6366f1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 160ms ease;
+      flex: 0 0 18px;
+    }
+
+    .indication-card .acc-btn[aria-expanded="true"] .acc-chevron {
+      transform: rotate(90deg);
+    }
+
+    .indication-card .acc-panel {
+      padding: 0 18px 16px 74px; /* aligns under label */
+    }
+    .indication-card .acc-content ul {
+      margin: 10px 0 0 0;
+      padding-left: 18px;
+    }
+    .indication-card .acc-content p {
+      margin: 10px 0 0 0;
+    }
+
+    .page-subtitle {
+      margin: 10px 0 16px 0;
+      color: #475569;
+    }
+  </style>
+</head>
+
+<body class="bacteria-page">
+  <header>
+    <div class="container">
+      <h1>Necrotizing Fasciitis (groin/perianal)</h1>
     </div>
   </header>
 
-  <main class="outer-wrapper">
-    <div class="detail-shell">
+  <div class="back-buttons">
+    <button class="back-button" onclick="window.location.href='skin-soft-tissue.html'">
+      ← Back to Skin &amp; Soft Tissue Infections
+    </button>
+  </div>
 
-      <!-- Back + Title row -->
-      <div class="detail-topbar left-align">
-        <a class="detail-back" href="skin-soft-tissue.html" aria-label="Back to Skin and Soft Tissue Infections">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 18l-6-6 6-6"></path>
-          </svg>
-        </a>
+  <section id="bacteria-list">
+    <div class="container">
 
-        <h1 class="detail-title">Necrotizing Fasciitis (groin/perianal)</h1>
-      </div>
-
-
-      <h2 class="detail-section-title">General Information</h2>
-
-      <!-- Card container -->
-      <div class="accordion-card" id="accordion">
+      <div class="indication-card" id="accordion">
 
         <!-- Common organisms -->
         <div class="acc-item">
           <button class="acc-btn" type="button" aria-expanded="false">
             <span class="acc-icon" aria-hidden="true">
-              <!-- simple icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="8" cy="12" r="2"></circle>
                 <circle cx="16" cy="8" r="2"></circle>
@@ -56,7 +122,7 @@
             <span class="acc-label">Common organisms</span>
             <span class="acc-chevron" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"></path>
+                <path d="M9 18l6-6-6-6"></path>
               </svg>
             </span>
           </button>
@@ -65,9 +131,9 @@
             <div class="acc-content">
               <ul>
                 <li>Streptococcus pyogenes</li>
-                <li>Streptococcus aureus</li>
+                <li>Staphylococcus aureus</li>
                 <li>Gram negative organisms</li>
-                <li>Anaerobic Organisms</li>
+                <li>Anaerobic organisms</li>
               </ul>
             </div>
           </div>
@@ -87,7 +153,7 @@
             <span class="acc-label">First line treatment regimen</span>
             <span class="acc-chevron" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"></path>
+                <path d="M9 18l6-6-6-6"></path>
               </svg>
             </span>
           </button>
@@ -95,10 +161,9 @@
           <div class="acc-panel" hidden>
             <div class="acc-content">
               <ul>
-                <li>Piperacillin/Tazobactam + Clindamycin for 48 - 72 hours after fever resolves and no further surgical debrediment </li>
-                <li>Piperacillin/Tazobactam + Linezolid for 48 - 72 hours after fever resolves and no further surgical debrediment </li>
+                <li>Piperacillin/Tazobactam + Clindamycin for 48 - 72 hours after fever resolves and no further surgical debridement</li>
+                <li>Piperacillin/Tazobactam + Linezolid for 48 - 72 hours after fever resolves and no further surgical debridement</li>
               </ul>
-              <p class="acc-note"></p>
             </div>
           </div>
         </div>
@@ -118,7 +183,7 @@
             <span class="acc-label">Alternative treatment regimen</span>
             <span class="acc-chevron" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"></path>
+                <path d="M9 18l6-6-6-6"></path>
               </svg>
             </span>
           </button>
@@ -126,17 +191,16 @@
           <div class="acc-panel" hidden>
             <div class="acc-content">
               <ul>
-                <li>Cefepime + Metronidazole + Clindamycin for 48 - 72 hours after fever resolves and no further surgical debrediment</li>
-                <li>Cefepime + Metronidazole + Linezolid for 48 - 72 hours after fever resolves and no further surgical debrediment</li>
+                <li>Cefepime + Metronidazole + Clindamycin for 48 - 72 hours after fever resolves and no further surgical debridement</li>
+                <li>Cefepime + Metronidazole + Linezolid for 48 - 72 hours after fever resolves and no further surgical debridement</li>
               </ul>
-              <p class="acc-note"></p>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-  </main>
+  </section>
 
   <script>
     // Simple accordion: one open at a time
