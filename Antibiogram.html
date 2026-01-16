@@ -1,135 +1,69 @@
-<!-- =========================
-Antibiogram_UPDATED.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antibiogram</title>
+
+  <!-- Match bacteria-index styling -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+<body class="bacteria-page">
+  <header>
+    <div class="container">
+      <h1>Antibiogram</h1>
     </div>
   </header>
 
-  <main class="outer-wrapper">
-    <div class="page-container page-container--list">
-      <button class="back-button" onclick="goHome()">← Back to Home</button>
+  <div class="back-buttons">
+    <button class="back-button" onclick="window.location.href='index.html'">
+      ← Back to Home
+    </button>
+  </div>
 
-      <h1 class="page-heading page-heading--center">Antibiogram</h1>
-      <p class="page-subtitle" style="text-align:center;">Select a facility.</p>
+  <section id="bacteria-list">
+    <div class="container">
 
-      <div class="list-card">
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_All_NonUrine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">All Integris Facilities Non-Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_All_Urine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">All Integris Facilities Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_Baptist_NonUrine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">Integris Baptist Medical Center Non-Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_Baptist_Urine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">Integris Baptist Medical Center Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_Southwest_NonUrine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">Integris Baptist Southwest Medical Center Non-Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="pdfs/IBMC_Antibiogram_Southwest_Urine.pdf" target="_blank" rel="noopener">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 7h10v10H7V7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7v10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-              <path d="M7 12h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="list-text">Integris Baptist Southwest Medical Center Urinary Source</span>
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </a>
-      </div>
+      <ul class="bacteria-items">
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_All_NonUrine.pdf" target="_blank" rel="noopener">
+            All Integris Facilities Non-Urinary Source
+          </a>
+        </li>
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_All_Urine.pdf" target="_blank" rel="noopener">
+            All Integris Facilities Urinary Source
+          </a>
+        </li>
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_Baptist_NonUrine.pdf" target="_blank" rel="noopener">
+            Integris Baptist Medical Center Non-Urinary Source
+          </a>
+        </li>
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_Baptist_Urine.pdf" target="_blank" rel="noopener">
+            Integris Baptist Medical Center Urinary Source
+          </a>
+        </li>
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_Southwest_NonUrine.pdf" target="_blank" rel="noopener">
+            Integris Baptist Southwest Medical Center Non-Urinary Source
+          </a>
+        </li>
+        <li>
+          <a href="pdfs/IBMC_Antibiogram_Southwest_Urine.pdf" target="_blank" rel="noopener">
+            Integris Baptist Southwest Medical Center Urinary Source
+          </a>
+        </li>
+      </ul>
     </div>
-  </main>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
