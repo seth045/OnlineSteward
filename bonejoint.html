@@ -4,157 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bone & Joint Infections</title>
+
+  <!-- Match bacteria-index styling -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
 </head>
-<body>
-  <!-- Top header bar (same as other pages) -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+
+<body class="bacteria-page">
+  <header>
+    <div class="container">
+      <h1>Bone &amp; Joint Infections</h1>
     </div>
   </header>
 
-  <main class="outer-wrapper">
-    <div class="page-container page-container--list">
+  <div class="back-buttons">
+    <button class="back-button" onclick="window.location.href='decision-support.html'">
+      ← Back to Decision Support
+    </button>
+  </div>
 
-      <a class="chip-link" href="decision-support.html">← Back to Decision Support</a>
+  <section id="bacteria-list">
+    <div class="container">
 
-      <h1 class="page-heading page-heading--center">Bone &amp; Joint Infections</h1>
-
-      <div class="list-card">
-
-        <a class="list-row" href="bj-boneandjoint-with-hardware.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Bone and Joint Infection with Hardware in Place</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="bj-nonvertebral-osteo.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Non-vertebral Osteomyelitis</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="bj-nonvertebral-osteo-hx-mrsa.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Non-vertebral Osteomyelitis with History of MRSA Isolation within the past year</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="bj-nonvertebral-osteo-hx-psa.html">
-          <span class="list-icon" aria-hidden="true">
-            <!-- “bug/network” icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Non-vertebral Osteomyelitis with History of Pseudomonas Isolation within the past year</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="bj-vertebral-osteomyelitis.html">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Vertebral Osteomyelitis</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-        <a class="list-row" href="bj-septic-arthritis-no-hardware.html">
-          <span class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="7" cy="7" r="2"></circle>
-              <circle cx="17" cy="7" r="2"></circle>
-              <circle cx="12" cy="17" r="2"></circle>
-              <path d="M9 8.5L11 14"></path>
-              <path d="M15 8.5L13 14"></path>
-            </svg>
-          </span>
-
-          <span class="list-text">Septic Arthritis without Hardware</span>
-
-          <span class="list-arrow" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18l6-6-6-6"></path>
-            </svg>
-          </span>
-        </a>
-
-
-      </div>
+      <ul class="bacteria-items">
+        <li><a href="bj-boneandjoint-with-hardware.html">Bone and Joint Infection with Hardware in Place</a></li>
+        <li><a href="bj-nonvertebral-osteo.html">Non-vertebral Osteomyelitis</a></li>
+        <li><a href="bj-nonvertebral-osteo-hx-mrsa.html">Non-vertebral Osteomyelitis with History of MRSA Isolation within the past year</a></li>
+        <li><a href="bj-nonvertebral-osteo-hx-psa.html">Non-vertebral Osteomyelitis with History of Pseudomonas Isolation within the past year</a></li>
+        <li><a href="bj-vertebral-osteomyelitis.html">Vertebral Osteomyelitis</a></li>
+        <li><a href="bj-septic-arthritis-no-hardware.html">Septic Arthritis without Hardware</a></li>
+      </ul>
     </div>
-  </main>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
