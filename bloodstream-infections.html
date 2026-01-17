@@ -4,304 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bloodstream infections</title>
+
+  <!-- Match bacteria-index styling -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
 </head>
 
-<body class="bonejoint-page">
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+<!-- Match bacteria-index body class -->
+<body class="bacteria-page">
+  <!-- Match bacteria-index header -->
+  <header>
+    <div class="container">
+      <h1>Bloodstream infections</h1>
     </div>
   </header>
 
-  <main class="outer-wrapper">
-    <div class="page-container page-container--list">
-      <button class="back-button" onclick="goHome()">← Back to Home</button>
+  <!-- Match bacteria-index back button wrapper -->
+  <div class="back-buttons">
+    <button class="back-button" onclick="window.location.href='decision-support.html'">
+      ← Back to Decision Support
+    </button>
+  </div>
 
-      <h1 class="page-heading">Bloodstream infections</h1>
-      <p class="page-subtitle">
-        Select the organism cluster identified in the blood culture.
-      </p>
+  <!-- Match bacteria-index list section/container -->
+  <section id="bacteria-list">
+    <div class="container">
 
-      <div class="list-card">
-        <!-- Reusable icon (same look as SSTI list) -->
-        <a class="list-row" href="bsi-ecoli-klebsiella-proteus.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">
-            E. coli / Klebsiella pneumoniae / Klebsiella oxytoca / Proteus species
-          </div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-enterobacter-citrobacter.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Enterobacter species / Citrobacter species</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-pseudomonas.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Pseudomonas aeruginosa</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-staph-aureus.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Staphylococcus aureus</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-staph-lugdunensis.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Staphylococcus lugdunensis</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-staph-coagneg.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Staphylococcus epidermidis / Staphylococcus species</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-strep-anginosus.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Streptococcus agalactiae / anginosus / pyogenes</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-strep-pneumoniae.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Streptococcus pneumoniae</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-enterococcus-faecalis.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Enterococcus faecalis</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-enterococcus-faecium.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Enterococcus faecium</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-
-        <a class="list-row" href="bsi-listeria.html">
-          <div class="list-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="6" cy="6" r="2"></circle>
-              <circle cx="18" cy="7" r="2"></circle>
-              <circle cx="8" cy="18" r="2"></circle>
-              <path d="M8 7.5l8 1"></path>
-              <path d="M7 8l1 8"></path>
-              <path d="M16.5 8.5l-7 8"></path>
-            </svg>
-          </div>
-          <div class="list-text">Listeria species</div>
-          <div class="list-arrow" aria-hidden="true">›</div>
-        </a>
-      </div>
+      <!-- Use the same list markup as bacteria-index -->
+      <ul class="bacteria-items">
+        <li><a href="bsi-baccilus.html">Bacillus spp.</a></li>
+        <li><a href="bsi-ecoli-klebsiella-proteus.html">E. coli / Klebsiella pneumoniae / Klebsiella oxytoca / Proteus species</a></li>
+        <li><a href="bsi-enterobacter-citrobacter.html">Enterobacter species / Citrobacter species</a></li>
+        <li><a href="bsi-pseudomonas.html">Pseudomonas aeruginosa</a></li>
+        <li><a href="bsi-staph-aureus.html">Staphylococcus aureus</a></li>
+        <li><a href="bsi-staph-lugdunensis.html">Staphylococcus lugdunensis</a></li>
+        <li><a href="bsi-staph-coagneg.html">Staphylococcus epidermidis / Staphylococcus species</a></li>
+        <li><a href="bsi-strep-anginosus.html">Streptococcus agalactiae / anginosus / pyogenes</a></li>
+        <li><a href="bsi-strep-pneumoniae.html">Streptococcus pneumoniae</a></li>
+        <li><a href="bsi-enterococcus-faecalis.html">Enterococcus faecalis</a></li>
+        <li><a href="bsi-enterococcus-faecium.html">Enterococcus faecium</a></li>
+        <li><a href="bsi-listeria.html">Listeria species</a></li>
+        <li><a href="bsi-candida_cryptococcus.html">Candida/Cryptococcus</a></li>
+        <li><a href="bsi-enterobacteriaceae-morganellaceae.html">Enterobacteriaceae/Morganellaceae</a></li>
+        <li><a href="bsi-salmonella.html">Salmonella spp.</a></li>
+        <li><a href="bsi-serratia.html">Serratia marcescens</a></li>
+        <li><a href="bsi-haemophilus-influenzae.html">Haemophilus influenzae</a></li>
+        <li><a href="bsi-neisseria-meningitidis.html">Neisseria meningitidis</a></li>
+        <li><a href="bsi-stenotrophomonas.html">Stenotrophomonas maltophilia</a></li>
+      </ul>
     </div>
-  </main>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-<!--
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bloodstream infections</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
-    </div>
-  </header>
-
-  <main class="outer-wrapper">
-    <div class="page-container">
-      <button class="back-button" onclick="goHome()">
-        ← Back to Home
-      </button>
-
-      <h1 class="page-title">Bloodstream infections</h1>
-      <p class="page-subtitle">
-        Select the organism cluster identified in the blood culture.
-      </p>
-
-      
-      <button class="menu-button"
-        onclick="goTo('bsi-ecoli-klebsiella-proteus.html')">
-        E. coli / Klebsiella pneumoniae / Klebsiella oxytoca / Proteus species
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-enterobacter-citrobacter.html')">
-        Enterobacter species / Citrobacter species
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-pseudomonas.html')">
-        Pseudomonas aeruginosa
-      </button>
-
-      
-      <button class="menu-button"
-        onclick="goTo('bsi-staph-aureus.html')">
-        Staphylococcus aureus
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-staph-lugdunensis.html')">
-        Staphylococcus lugdunensis
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-staph-coagneg.html')">
-        Staphylococcus epidermidis / Staphylococcus species
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-strep-anginosus.html')">
-        Streptococcus agalactiae / anginosus / pyogenes
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-strep-pneumoniae.html')">
-        Streptococcus pneumoniae
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-enterococcus-faecalis.html')">
-        Enterococcus faecalis
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-enterococcus-faecium.html')">
-        Enterococcus faecium
-      </button>
-
-      <button class="menu-button"
-        onclick="goTo('bsi-listeria.html')">
-        Listeria species
-      </button>
-    </div>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
--->
