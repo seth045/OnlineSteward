@@ -70,19 +70,37 @@
       padding-top: 8px;
       padding-bottom: 16px;
     }
+
+    /* Nested accordion styling inside Alternative regimen */
+    .bsi-page .bsi-sub-accordion{
+      max-width: 560px;
+      margin-top: 10px;
+      background: #ffffff;
+      border-left: 4px solid #f97316;  /* subtle orange accent for sub-options */
+      font-weight: 600;
+    }
+
+    .bsi-page .bsi-sub-content{
+      max-width: 560px;
+      border-left: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+
   </style>
 </head>
 
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
 <body class="bsi-page" data-bsi-cluster="candida_albicans">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -90,8 +108,6 @@
       <button class="back-button" onclick="goTo('bsi-candida_cryptococcus.html')">
         ← Back to Fungemia
       </button>
-
-      <h1 class="page-title">Fungemia</h1>
 
       <div class="title-bar">
         Candida Albicans
@@ -111,7 +127,7 @@
       <section class="bsi-result">
         <p class="bsi-summary">
           Resistance marker:
-          <strong><span id="bsi-marker-label">Negative</span></strong>
+          <strong><span id="bsi-marker-label">N/A</span></strong>
         </p>
 
         <button class="accordion-header" type="button">
@@ -125,12 +141,37 @@
           Alternative regimen
         </button>
         <div class="accordion-content">
+
+          <!-- Fallback plain text (used for other organisms / older data) -->
           <p id="bsi-alternative-text"></p>
+
+          <!-- Nested options (shown only when JS provides structured alternatives) -->
+          <div id="bsi-alt-options" style="display:none;">
+
+            <button class="accordion-header bsi-sub-accordion" type="button">
+              Low risk patients (non-neutropenic, not critically ill, no history of azole antifungal resistance)
+            </button>
+            <div class="accordion-content bsi-sub-content">
+              <p id="bsi-alt-lowrisk"></p>
+            </div>
+
+            <button class="accordion-header bsi-sub-accordion" type="button">
+              Unable to tolerate micafungin or fluconazole
+            </button>
+            <div class="accordion-content bsi-sub-content">
+              <p id="bsi-alt-intolerance"></p>
+            </div>
+
+          </div>
         </div>
+
       </section>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
+
 </body>
 </html>
