@@ -76,13 +76,13 @@
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
 <body class="bsi-page" data-bsi-cluster="candida_lipytica">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -91,7 +91,6 @@
         ← Back to Fungemia
       </button>
 
-      <h1 class="page-title">Fungemia</h1>
 
       <div class="title-bar">
         Candida Lipytica
@@ -130,7 +129,8 @@
       </section>
     </div>
   </main>
-
-  <script src="script.js"></script>
+<script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
