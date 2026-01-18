@@ -76,13 +76,13 @@
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
 <body class="bsi-page" data-bsi-cluster="ecoli_klebsiella_proteus">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -90,8 +90,6 @@
       <button class="back-button" onclick="goTo('bloodstream-infections.html')">
         ← Back to bloodstream infections
       </button>
-
-      <h1 class="page-title">Bloodstream infections</h1>
 
       <div class="title-bar">
         E. coli / Klebsiella pneumoniae / Klebsiella oxytoca / Proteus species
@@ -136,15 +134,26 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
+  
+  
+<script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
 
-  <!-- Optional: auto-open Recommended on load -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const firstHeader = document.querySelector(".bsi-page .accordion-header");
-      if (firstHeader) firstHeader.click();
-    });
-  </script>
+<!-- Optional: auto-open Recommended on load -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const firstHeader = document.querySelector(".bsi-page .accordion-header");
+    if (firstHeader) firstHeader.click();
+  });
+</script>
+
+
+
+</body>
+</html>
+
+
 </body>
 </html>
 
