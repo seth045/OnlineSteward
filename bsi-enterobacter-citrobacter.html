@@ -76,13 +76,13 @@
 
 <body class="bsi-page" data-bsi-cluster="enterobacter_citrobacter">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -90,8 +90,6 @@
       <button class="back-button" onclick="goTo('bloodstream-infections.html')">
         ← Back to bloodstream infections
       </button>
-
-      <h1 class="page-title">Bloodstream infections</h1>
 
       <div class="title-bar">Enterobacter species / Citrobacter species</div>
 
@@ -121,14 +119,9 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
-
-  <!-- Auto-open the recommended panel AFTER script.js sets the default marker -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const firstHeader = document.querySelector(".bsi-page .accordion-header");
-      if (firstHeader) firstHeader.click();
-    });
-  </script>
+<script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
+
