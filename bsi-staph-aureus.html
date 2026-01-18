@@ -70,19 +70,34 @@
       padding-top: 8px;
       padding-bottom: 16px;
     }
+
+
+
+    .bsi-page .bsi-note{
+      width: 100%;
+      max-width: 600px;
+      margin: 12px auto 0 auto;
+      padding: 12px 14px;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid #f97316;
+      background: #fff7ed;
+      border-radius: 10px;
+      color: var(--text-main);
+      font-weight: 600;
+    }
   </style>
 </head>
 
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
 <body class="bsi-page" data-bsi-cluster="staph_aureus">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -91,15 +106,14 @@
         ← Back to bloodstream infections
       </button>
 
-      <h1 class="page-title">Bloodstream infections</h1>
+  
+
 
       <div class="title-bar">
         Staphylococcus aureus
       </div>
 
-      <p class="page-subtitle">
-        Select the resistance marker result for this isolate.
-      </p>
+      <div id="bsi-note" class="bsi-note" style="display:none;"></div>
 
       <!-- Resistance marker buttons -->
       <div class="resistance-tabs">
@@ -135,14 +149,9 @@
     </div>
   </main>
 
-  <script src="script.js"></script>
-
-  <!-- Optional: auto-open Recommended on load (matches your working page behavior) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const firstHeader = document.querySelector(".bsi-page .accordion-header");
-      if (firstHeader) firstHeader.click();
-    });
-  </script>
+ <script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
+
