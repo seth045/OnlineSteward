@@ -2986,6 +2986,8 @@ const bacteriaData = [
 
 
 
+
+
 //abx dosing
 const antibioticDosingData = {
 
@@ -3860,158 +3862,213 @@ const antibioticDosingData = {
         indications: [
             {
                 name: "Bite wound infection",
-                dose: "IV: 1.5 to 3 grams every 6 hours",
-                description: "Continue treatment for 1 to 2 days after resolution of infection. ",
+                dose: "IV: 1 gram once daily",
+                description: "Duration is typically 5 - 14 days (may include oral step down therapy) ",
             },
             {
                 name: "Bloodstream infection",
-                dose: "IV: 3 grams every 6 hours",
+                dose: "IV: 1 gram once daily",
                 description: "Duration for 7 to 14 days",
             },
             {
                 name: "Diabetic foot infection, moderate to severe",
-                dose: "IV: 3 grams every 6 hours.",
+                dose: "IV: 1 gram once daily",
                 description: "Duration for 2 to 4 weeks. ",
             },
             {
-                name: "Endocarditis, treatment",
-                dose: "IV: 3 grams every 6 hours in combination with gentamicin. ",
-                description: "Duration for 6 weeks.",
+                name: "Intra-abdominal infection - Cholecystitis",
+                dose: "IV: 1 gram once daily",
+                description: "Continue for 1 day after gallbladder removal or clinical resolution.",
             },
             {
-                name: "Odontogenic soft tissue infection, pyogenic",
-                dose: "IV: 3 grams every 6 hours. Transition to oral step-down therapy once clinical improvement is seen.",
-                description: "Duration usually 7 to 14 days",
+                name: "Intra-abdominal infection - (perforated appendix, appendiceal abscess, cholangitis, diverticulitis)",
+                dose: "IV: 1 gram once daily",
+                description: "Duration depends on type of infection and adequate source control",
             },
             {
-                name: "Pelvic infections - Pelvic inflammatory disease (including tubo-ovarian abscess",
-                dose: "IV: 3 grams every 6 hours in combination with doxycycline.",
+                name: "Osteomyelitis +/- Discitis",
+                dose: "IV: 1 gram once daily",
+                description: "Duration is usually 6 weeks ",
+            },
+            {
+                name: "Pelvic infections - Acute",
+                dose: "IV: 1 gram once daily",
                 description: "",
             },
             {
-                name: "Pelvic infections - Postpartum endometritis",
-                dose: "IV: 3 grams every 6 hours.",
-                description: "",
-            },
-            {
-                name: "Peritonitis, treatment (peritoneal dialysis)",
-                dose: "Intraperitoneal: <br> Loading dose: 1.5 grams per liter of dialysate. <br> Maintenance dose: 200 mg per liter of dialysate with each subsequent dialysis exchange.",
-                description: "Duration of therapy is 2 to 3 weeks depending on organism.",
-            },
-            {
-                name: "Pneumonia (Aspiration pneumonia - community acquired)",
-                dose: "IV: 1.5 to 3 grams every 6 hours.",
-                description: "Duration of 5 days",
-            },
-            {
-                name: "Pneumonia (community acquired)",
-                dose: "IV: 3 grams every 6 hours in combination with other agents when appropriate.",
-                description: "Duration of 5 days.",
+                name: "Pneumonia (Community acquired)",
+                dose: "IV: 1 gram once daily",
+                description: "Use as part of an appropriate combination regimen",
             },
             {
                 name: "Pneumonia (Hospital acquired or Ventilator associated)",
-                dose: "IV: 3 grams every 6 hours in combination with other agents when appropriate.",
+                dose: "IV: 1 gram once daily.",
                 description: "Duration of 7 days.",
             },
             {
-                name: "Surgical prophylaxis",
-                dose: "IV: 3 grams within 60 minutes prior to surgical incision",
+                name: "Prosthetic Joint Infection",
+                dose: "IV: 1 gram every 24 hours",
+                description: "Duration generally 4 to 6 weeks",
+            },
+            {
+                name: "Skin and Soft Tissue Infections",
+                dose: "IV: 1 gram once daily",
+                description: "Use as part of an appropriate combination regimen",
+            },
+            {
+                name: "Surgical prophylaxis (colorectal surgery)",
+                dose: "IV: 1 gram within 60 minutes prior to surgery",
                 description: "",
             },
             {
-                name: "Surgical site infection",
-                dose: "IV: 3 grams every 6 hours",
+                name: "Urinary Tract Infection - Complicated",
+                dose: "IV: 1 gram once daily",
                 description: "Duration depends on severity of infection",
             },
         ],
         renalAdjustments: {
             "> 30": "No dosage adjustment necessary",
-            "15 to 30": "1.5 to 3 grams every 12 hours depending on usual recommended dose",
-            "< 15": "1.5 to 3 grams every 24 hours depending on usual recommended dose",
-            "HD": "1.5 to 3 grams every 12 to 24 hours", 
-            "Peritoneal dialysis": "1.5 grams every 12 hours or 3 grams every 24 hours",
-            "CRRT": "3 grams every 8 to 12 hours",
-            "PIRRT": "3 grams followed by 1.5 to 3 grams every 8 to 12 hours.",
+            "< 30": "500 mg once daily",
+            "HD": "500 mg once daily", 
+            "Peritoneal dialysis": "500 mg once daily",
+            "CRRT": "1 gram once daily",
+            "PIRRT": "1 gram once daily",
         }
     },
 
-    "Erta": {
+    "Imipenem-Cilastatin": {
         indications: [
             {
-                name: "Bite wound infection",
-                dose: "IV: 3.375 grams every 6 to 8 hours.",
-                description: "Duration is usually 5 to 14 days.",
+                name: "Anthrax - Systemic (including meningitis)",
+                dose: "IV: 1 gram every 6 hours",
+                description: "Use in combination with other appropriate agents for > 2 weeks",
             },
             {
-                name: "Bloodstream infection - Community Acquired Infection",
-                dose: "IV: 3.375 grams every 6 hours",
-                description: "",
+                name: "Bloodstream infection",
+                dose: "IV: 500 mg every 6 hours",
+                description: "Duration is usually 7 - 14 days depending on source and extent of infection",
             },
             {
-                name: "Bloodstream infection - Health care-associated infection",
-                dose: "IV: 4.5 grams every 6 hours",
-                description: "",
-            },
-            {
-                name: "Cystic fibrosis, severe acute pulmonary exacerbation or failure of oral therapy",
-                dose: "IV: 4.5 grams every 6 hours",
-                description: "",
+                name: "Cystic fibrosis, severe acute pulmonary exacerbation",
+                dose: "IV: 500 mg - 1 gram every 6 hours",
+                description: "Duration is usually 10 - 14 days. ",
             },
             {
                 name: "Diabetic foot infection, moderate to severe",
-                dose: "IV: 3.375 grams every 6 hours or 4.5 grams every 8 hours.",
+                dose: "IV: 500 mg every 6 hours",
                 description: "Duration for 2 to 4 weeks. ",
             },
             {
-                name: "Intra-abdominal infection - Acute Cholecystitis",
-                dose: "IV: 3.375 grams or 4.5 grams every 6 hours",
-                description: "Continue for 1 day after gallbladder removal or clinical resolution in nonoperative patients.",
+                name: "Endocarditis - treatment ",
+                dose: "IV: 500 mg every 6 hours OR 1 gram every 8 hours",
+                description: "Use as part of an appropriate combination regimen for 6 weeks",
             },
             {
-                name: "Intra-abdominal infection - Cholangitis, perforated appendix, diverticulitis, abscess",
-                dose: "IV: 3.375 grams or 4.5 grams every 6 hours",
-                description: "",
+                name: "Intra-abdominal infection - Healthcare associated cholecystitis",
+                dose: "IV: 500 mg every 6 hours or 1 gram every 8 hours",
+                description: "Continue for 1 day after gallbladder removal or clinical resolution in nonoperative patients. Reserve for patients who cannot tolerate a beta-lactam or are at risk for infection with ESBL organism. ",
+            },
+            {
+                name: "Intra-abdominal infection - Healthcare associated Cholangitis, perforated appendix, diverticulitis, abscess",
+                dose: "IV: 500 mg every 6 hours or 1 gram every 8 hours",
+                description: "Duration usually 4 - 5 days following adequate source control",
+            },
+            {
+                name: "Melioidosis or glanders",
+                dose: "IV: 25 mg/kg up to 1 gram every 6 - 8 hours",
+                description: "Duration usually 14 days",
+            },
+            {
+                name: "Mycobacterial infection (nontuberculosis)",
+                dose: "IV: 500 mg - 1 gram twice daily",
+                description: "Use as part of an appropriate combination regimen for 2 - 12 weeks. ",
             },
             {
                 name: "Neutropenic fever, high risk patients with cancer",
-                dose: "IV: 4.5 grams every 6 to 8 hours until afebrile for > 48 hours",
-                description: "Continue for 1 day after gallbladder removal or clinical resolution in nonoperative patients.",
+                dose: "IV: 500 mg every 6 hours",
+                description: "Use until afebrile for > 48 hours and neutropenia has resolved (ANC ? 500 cells/mm^3)",
+            },
+            {
+                name: "Nocardiosis - Severe",
+                dose: "IV: 500 mg every 6 hours. ",
+                description: "Use as part of an appropriate combination regimen. ID consult strongly recommended. Duration usually 6 - 12 months",
+            },
+            {
+                name: "Peritonitis - Treatment",
+                dose: "<br><br>Intermittent Intraperitoneal: 500 mg added to dialysate with every other exchange. Allow to dwell > 6 hours <br><br> Continuous Intraperitoneal: Loading dose of 250 mg/L with first exchange; maintenance dose 50 mg/L with each subsequate exchange",
+                description: "<br>Duration usually > 3 weeks",
             },
             {
                 name: "Pneumonia (Community acquired)",
-                dose: "IV: 4.5 grams every 6 hours as part of an appropriate combination regimen",
-                description: "",
+                dose: "IV: 500 mg every 6 hours",
+                description: "Use as part of an appropriate combination regimen",
             },
             {
                 name: "Pneumonia (Hospital acquired or Ventilator associated)",
-                dose: "IV: 4.5 grams every 6 hours.",
-                description: ".",
+                dose: "IV: 500 mg every 6 hours",
+                description: "Use as part of an appropriate combination regimen",
             },
             {
                 name: "Sepsis and septic shock",
-                dose: "IV: 4.5 grams every 6 hours.",
-                description: "",
+                dose: "IV: 500 mg every 6 hours or 1 gram every 8 hours",
+                description: "Use as part of an appropriate combination regimen",
             },
             {
-                name: "Skin and soft tissue infection, moderate to severe",
-                dose: "IV: 3.375 grams every 6 hours or 4.5 grams every 8 hours.",
+                name: "Skin and soft tissue infection - Necrotizing",
+                dose: "IV: 1 gram every 6 - 8 hours",
+                description: "Continue until further debrediment is no longer necessary and patient has been afebrile for > 48 hours",
+            },
+            {
+                name: "Skin and soft tissue infection - Non-necrotizing",
+                dose: "IV: 500 mg every 6 hours",
                 description: "",
             },
             {
                 name: "Urinary tract infection, complicated (pyelonephritis)",
-                dose: "IV: 3.375 grams every 6 hours or 4.5 grams every 8 hours",
+                dose: "IV: 500 mg every 6 hours or 1 gram every 8 hours",
+                description: "Reserve for critically ill patients or for patients with risk factors for MDR pathogens",
+            },
+        ],
+        renalAdjustments: {
+            "> 60 to < 130": "No dose adjustment necessary",
+            "30 to < 60": "250 - 500 mg every 6 - 8 hours depending on usual recommended dose",
+            "15 to < 30": "Variable depending on usual recommended dose",
+            "< 15": "Do not administer unless hemodialysis is instituted within 48 hours", 
+            "HD": "250 - 500 mg every 12 hours",
+            "Peritoneal dialysis": "250 - 500 mg every 12 hours",
+            "CRRT": "1 gram as a single dose, followed by 250 mg every 6 hours or 500 mg every 6 to 8 hours",
+            "PIRRT": "500 mg - 1 gram as a single dose, followed by 250 mg every 6 hours or 500 mg every 8 hours",
+        }
+    },
+
+    "Imipenem-Cilastatin-Relebactam": {
+        indications: [
+            {
+                name: "Intra-Abdominal - Complicated",
+                dose: "IV: 1.25 grams every 6 hours",
+                description: "Duration is usually 4 - 5 days following adequate source control",
+            },
+            {
+                name: "Pneumonia (Hospital acquired or Ventilator associated)",
+                dose: "IV: 1.25 grams every 6 hours",
+                description: "",
+            },
+            {
+                name: "Urinary tract infection, complicated (pyelonephritis)",
+                dose: "IV: 1.25 grams every 6 hours",
                 description: "",
             },
         ],
         renalAdjustments: {
-            "100 to < 130": "Extended infusion preferred if recommended dose is 3.375 grams or 4.5 grams every 6 hours. If usual recommended dose is 3.375 grams as extended infusion then 3.375 grams or 4.5 grams infused over 4 hours every 6 hours",
-            "40 to < 100": "3.375 or 4.5 grams every 6 hours or extended infusion depending on usual recommended dose.",
-            "20 to < 40": "Variable depending on usual recommended dose",
-            "< 20": "Variable depending on usual recommended dose", 
-            "HD": "4.5 grams every 12 hours or 2.25 grams every 8 hours",
-            "Peritoneal dialysis": "4.5 grams every 12 hours of 2.25 grams every 8 hours",
-            "CRRT": "4.5 grams every 8 hours",
-            "PIRRT": "3.375 or 4.5 grams every 8 hours ",
+            "> 90": "No dose adjustment necessary",
+            "60 - 89": "1 gram (imipenem 400 mg/cilastatin 400 mg/relebactam 200 mg) every 6 hours",
+            "30 - 59": "750 mg (imipenem 300 mg/cilastatin 300 mg/relebactam 150 mg) every 6 hours",
+            "15 - 29": "500 mg (imipenem 200 mg/cilastatin 200 mg/relebactam 100 mg) every 6 hours", 
+            "< 15": "Do not use ",
+            "HD": "500 mg (imipenem 200 mg/cilastatin 200 mg/relebactam 100 mg) every 6 hours",
+            "Peritoneal dialysis": "Not recommended",
+            "CRRT": "1.25 grams (imipenem 500 mg/cilastatin 500 mg/relebactam 250 mg) as a single dose followed by 750 mg (imipenem 300 mg/cilastatin 300 mg/relebactam 150 mg) every 6 hours ",
+            "PIRRT": "1.25 grams (imipenem 500 mg/cilastatin 500 mg/relebactam 250 mg) as a single dose followed by <br><br> PIRRT days: 750 mg (imipenem 300 mg/cilastatin 300 mg/relebactam 150 mg) every 6 hours <br><br> Non-PIRRT days: 500 mg (imipenem 200 mg/cilastatin 200 mg/relebactam 100 mg) every 8 hours",
         }
     },
 
@@ -4020,97 +4077,136 @@ const antibioticDosingData = {
     "Meropenem": {
         indications: [
             {
-                name:"Anthrax",
-                dose: "2g IV every 8 hours", 
-                description: "Should be dosed as part of an appropriate combination regimen"
+                name:"Anthrax - Systemic (including meningitis)",
+                dose: "IV: 2 grams every 8 hours", 
+                description: "Use as part of an appropriate combination regimen for > 2 weeks"
             },
 
             {
                 name: "Bloodstream Infection",
-                dose: "1g IV every 8 hours",
-                description: "Usual duration is 7-14 days depending on source, pathogen, and clinical response"
+                dose: "IV: 1 gram every 8 hours",
+                description: "Usual duration is 7 - 14 days depending on source, pathogen, and clinical response"
             },
             {
-                name: "Cystic Fibrosis",
-                dose: "2g IV every 8 hours",
-                description:""
+                name: "Cystic Fibrosis - Acute Pulmonary Exacerbation",
+                dose: "IV: 2 grams every 8 hours",
+                description:"Duration is usually 10 - 14 days"
             }, 
 
             {
                 name: "Diabetic Foot Infection (moderate to severe)", 
-                dose: "1g IV every 8 hours",
+                dose: "IV: 1 gram every 8 hours",
                 description:""
 
             }, 
 
             {
-                name: "Intra-abdominal infections", 
-                dose: "1g IV every 8 hours", 
-                description:""
+                name: "Intra-abdominal infection - Healthcare associated cholecystitis", 
+                dose: "IV: 1 gram every 8 hours", 
+                description:"Continue for 1 day after gallbladder removal or clinical resolution"
+
+            }, 
+
+            {
+                name: "Intra-abdominal infection - Healthcare associated cholangitis, appendicitis, diverticulitis, abscess", 
+                dose: "IV: 1 gram every 8 hours", 
+                description:"Duration depends on source of infection"
+
+            }, 
+
+            {
+                name: "Intracranial Abscess and Spinal Epidural Abscess ", 
+                dose: "IV: 2 grams every 8 hours", 
+                description:"Use as part of an appropriate combination regimen for 4 - 8 weeks. "
 
             }, 
  
 
             {
                 name: "Melioidosis or glanders", 
-                dose: "1g IV every 8 hours", 
+                dose: "IV: 1 gram every 8 hours", 
                 description:""
 
             }, 
 
             {
                 name: "Meningitis (bacterial)", 
-                dose: "2g IV every 8 hours", 
-                description:""
+                dose: "IV: 2 grams every 8 hours", 
+                description:"Duration is 7 - 21 days depending on causative pathogen and clincial response "
+
+            }, 
+
+            {
+                name: "Neutropenic fever - High risk cancer patients", 
+                dose: "IV: 1 grams every 8 hours", 
+                description:"Use until afebrile for > 48 hours and resolution of neutropenia (ANC > 500 cells/mm^3)"
+
+            },
+
+            {
+                name: "Nocardiosis - Severe", 
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description:"Use as part of an appropriate combination regimen. ID consult recommended. Duration usually 6 - 12 months "
 
             }, 
 
 
             {
                 name: "Osteomyelitis and/ or discitis", 
-                dose: "1g IV every 8 hours",
+                dose: "IV: 1 gram every 8 hours",
                 description: "Duration should be > 6 weeks"
             }, 
 
             {
-                name: "Pneumonia (CAP/HAP/VAP)", 
-                dose: "1g IV every 8 hours", 
+                name: "Peritonitis - Treatment", 
+                dose: "<br><br>Intermittent Intraperitoneal: 500 mg added to dialysate solution once daily. Allow to dwell > 6 hours <br><br> Continuous Intraperitoneal: 125 mg/L with each dialysate exchange<br><br>", 
+                description:"Duration usually > 3 weeks"
+
+            },
+
+            {
+                name: "Pneumonia - Community-acquired", 
+                dose: "IV: 1 gram every 8 hours", 
+                description:"Use as part of an appropriate combination regimen"
+
+            },
+            {
+                name: "Pneumonia - Hospital-acquired or ventilator associated", 
+                dose: "IV: 1 gram every 8 hours", 
                 description:""
 
             }, 
 
             {
                 name: "Prosthetic Joint Infection", 
-                dose: "1g IV every 8 hours", 
-                description:"", 
-                description:""
-
+                dose: "IV: 1 gram every 8 hours", 
+                description:"Duration usually 4 - 6 weeks", 
 
             }, 
 
             {
                 name: "Sepsis and Septic shock", 
-                dose: "1-2g IV every 8 hours", 
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description:"Use as part of an appropriate combination regimen "
+
+            }, 
+
+            {
+                name: "Skin and Soft Tissue Infection", 
+                dose: "IV: 1 gram every 8 hours", 
                 description:""
 
             }, 
 
             {
-                name: "SSTI Infection", 
-                dose: "1g IV every 8 hours", 
-                description:""
-
-            }, 
-
-            {
-                name: "UTI (complicated)", 
-                dose: "1g IV every 8 hours", 
-                description:""
+                name: "Urinary tract infection - Complicated", 
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description:"Reserve 2 gram dose for MDR pathogens"
 
             }
         ],
         renalAdjustments: {
-            "≥ 50": "No adjustment needed",
+            "≥ 50 - < 130": "No adjustment needed",
             "> 25-49": "1 - 2 grams IV every 12 hours",
             "10-24": "500 - 1000 mg IV every 12 hours",
             "< 10":" 500 - 1000 mg IV every 24 hours",
@@ -4121,6 +4217,1092 @@ const antibioticDosingData = {
             "PIRRT: Traditional intermittent infusion": "1 g every 12 hours. (If urine output is > 300 mL/day may use 2 g every 8 hours)",
         }
     },
+
+    "Meropenem-Vaborbactam": {
+        indications: [
+            {
+                name:"Carbapenem-resistant Enterobacterales infection",
+                dose: "IV: 4 grams every 8 hours", 
+                description: ""
+            },
+
+            {
+                name: "Urinary tract infection - Complicated", 
+                dose: "IV: 4 grams every 8 hours", 
+                description:"Reserve for patients with or at risk for extensively resistent pathogens"
+
+            }
+        ],
+        renalAdjustments: {
+            "≥ 50 - < 130": "No adjustment needed",
+            "> 30 - 49": "2 grams every 8 hours",
+            "> 15 - 29": "2 grams every 12 hours",
+            "< 15":" 1 gram every 12 hours",
+            "HD": "1 gram every 12 hours", 
+            "Peritoneal dialysis": "1 gram every 12 hours",
+            "CRRT": "2 grams every 8 hours",
+            "PIRRT": "2 grams every 12 hours",
+        }
+    },
+
+    "Aztreonam": {
+        indications: [
+            {
+                name:"Bloodstream Infection",
+                dose: "IV: 2 grams every 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Duration is usually 7 - 14 days. Use as part of appropriate combination regimen"
+            },
+
+            {
+                name:"Diabetic Foot Infection",
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Duration is usually 2 - 4 weeks."
+            },
+
+            {
+                name:"Intra-abdominal Infection - Healthcare associated Cholecystitis",
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Continue for 1 day after gallbladder removal or until clinical resolution."
+            },
+
+            {
+                name:"Intra-abdominal Infection - Healthcare associated appendicitis, diverticulitis, intra-abdominal abscess",
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Use as part of an appropriate combination regimen. Duration is 4 - 5 days following adequate source control."
+            },
+
+            {
+                name:"Intracranial Abscess",
+                dose: "IV: 2 grams every 6 - 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Use as part of an appropriate combination regimen. Duration is 6 - 8 weeks."
+            },
+
+            {
+                name:"Meningitis - Bacterial",
+                dose: "IV: 2 grams every 6 - 8 hours", 
+                description: "Reserve for patients who cannot use other beta-lactams. Use in combination with vancomycin for empiric therapy. Duration is usually 10 - 14 days."
+            },
+
+            {
+                name:"Metallo-beta-lactamse-producing Enterobacterales and multidrug resistant Stenotrophomonas maltophilia infections",
+                dose: "IV: 2 grams every 8 hours infused over 3 hours in combination with ceftazidime/avibactam", 
+                description: ""
+            },
+
+            {
+                name:"Osteomyelitis",
+                dose: "IV: 2 grams every 8", 
+                description: "Reserve for patients who cannot use other beta-lactams. Duration is usually > 6 weeks. For empiric therapy use as part of an appropriate combination regimen."
+            },
+
+            {
+                name:"Peritonitis - Treatment",
+                dose: "<br> Intermittent Intraperitoneal: 2 grams added to the dialysate solution once daily, allow to dwell > 6 hours <br><br> Continuous Intraperitoneal: Loading dose 500 mg/L - 1 gram/L of dialysate added to first exchange; maintenance dose 250 mg/L of dialysate with each subsequent exchange ", 
+                description: "Duration is usually > 3 weeks in patients with adequate clinical response"
+            },
+
+            {
+                name: "Pneumonia - Community-acquired", 
+                dose: "IV: 2 gram every 8 hours", 
+                description:"Reserve for patients who cannot use other beta-lactams"
+
+            },
+            {
+                name: "Pneumonia - Hospital-acquired or ventilator associated", 
+                dose: "IV: 2 grams every 8 hours", 
+                description:"Reserve for patients who cannot use other beta-lactams"
+
+            }, 
+
+            {
+                name: "Skin and Soft Tissue Infection", 
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description:"Reserve for patients who cannot use other beta-lactams. Duration is usually 5 - 14 days"
+
+            }, 
+
+            {
+                name: "Surgical Prophylaxis", 
+                dose: "IV: 2 grams within 60 minutes prior to surgical incision. ", 
+                description:"Reserve for patients who cannot use other beta-lactams."
+
+            },
+
+            {
+                name: "Urinary tract infection - Complicated", 
+                dose: "IV: 1 - 2 grams every 8 hours", 
+                description:"Reserve for patients with or at risk for extensively resistent pathogens. Duration is usually 5 - 7 days"
+            }
+        ],
+        renalAdjustments: {
+            "30 - < 130": "No adjustment needed",
+            "10 - < 30": " 1 - 2 grams every 12 hours depending on usual recommended dose",
+            "< 10": "1 - 2 grams every 24 hours depending on usual recommended dose",
+            "HD": "1 - 2 grams every 24 hours depending on usual recommended dose", 
+            "Peritoneal dialysis": "1 - 2 grams every 24 hours depending on usual recommended dose",
+            "CRRT": "2 grams as a single dose followed by 1 gram every 8 hours or 2 grams every 12 hours",
+            "PIRRT": "2 grams as a single dose followed by 1 - 2 grams every 12 hours. Ensure at least 1 dose is infused after PIRRT session ends on PIRRT days",
+        }
+    },
+
+    "Ciprofloxacin": {
+        indications: [
+            {
+                name:"Anthrax - Inhalational (Postexposure prophylaxis)",
+                dose: "<br> <br> Oral: 500 mg every 12 hours <br> IV: 400 mg every 12 hours", 
+                description: "<br>Duration is usually 42 - 60 days"
+            },
+
+            {
+                name:"Anthrax - Cutaneous (Without meningitis)",
+                dose: "Oral: 500 mg every 12 hours", 
+                description: "Duration is usually 42 - 60 days"
+            },
+
+            {
+                name:"Anthrax - Systemic (Including meningitis)",
+                dose: "IV: 400 mg every 8 hours", 
+                description: "Use in combination with an appropriate combination regimen for > 2 weeks. "
+            },
+
+            {
+                name:"Bite Wound Infection - Prophylaxis and Treatment",
+                dose: "<br> <br> Oral: 500 - 750 mg twice daily <br> IV: 400 mg every 12 hours", 
+                description: "<br>Duration is usually 3 - 5 days for prophylaxis and 5 - 14 days for treatment"
+            },
+
+            {
+                name:"Bronchiectasis - Acute Exacerbation",
+                dose: "Oral: 500 - 750 mg twice daily", 
+                description: "Duration is usually up to 14 days"
+            },
+
+            {
+                name:"Cat Scratch Disease",
+                dose: "Oral: 500 mg twice daily", 
+                description: "Duration is usually 7 - 10 days"
+            },
+
+            {
+                name:"Cholera",
+                dose: "Oral: 1000 mg as a single dose", 
+                description: ""
+            },
+
+            {
+                name:"COPD Acute Exacerbation",
+                dose: "Oral: 750 mg twice daily", 
+                description: "Duration is usually 5 - 7 days"
+            },
+
+            {
+                name:"Crohns Disease - Perianal Fistulas",
+                dose: "Oral: 500 mg twice daily", 
+                description: "Use with or without metronidazole for up to 8 weeks"
+            },
+
+            {
+                name:"Diabetic Foot Infection",
+                dose: "<br><br> Mild to Moderate: Oral: 500 mg every 12 hours or 750 mg twice daily if pseudomonas is suspected <br> Moderate to Severe: IV: 400 mg every 12 hours or 400 mg every 8 hours if pseudomonas is expectecd", 
+                description: ""
+            },
+
+            {
+                name:"Infectious Diarrhea",
+                dose: "<br><br>Oral: 500 - 750 mg every 12 hours <br> IV: 400 mg every 12 hours", 
+                description: "<br> Streamline based on specific pathogen"
+            },
+
+            {
+                name:"Endocarditis treatment - HACEK organisms",
+                dose: "<br><br> Oral: 500 - 750 mg every 12 hours for 4 - 6 weeks depending on valve type (native vs prosthetic) <br> IV: 400 mg eveyr 8 - 12 hours for 4 - 6 weeks depending on valve type (native vs prosthetic)", 
+                description: ""
+            },
+
+            {
+                name:"Endocarditis treatment - MSSA step down therapy",
+                dose: "<br><br> Oral: 750 mg every 12 hours in combination with rifampin for total of 6 weeks including IV therapy", 
+                description: ""
+            },
+
+            {
+                name:"Intra-abdominal Infection - Cholecystitis",
+                dose: "<br><br> Oral: 500 mg every 12 hours <br> IV: 400 mg every 12 hours", 
+                description: "Continue for 1 day after gallbladder removal or until clinical resolution."
+            },
+
+            {
+                name:"Intra-abdominal Infection - Appendicitis, diverticulitis, intra-abdominal abscess",
+                dose: "<br><br> Oral: 500 mg every 12 hours in combination with metronidazole <br> IV: 400 mg every 12 hours in combination with metronidazole", 
+                description: "Duration is 4 - 5 days following adequate source control."
+            },
+
+            {
+                name:"Meningitis - Bacterial",
+                dose: "IV: 400 mg every 8 - 12 hours", 
+                description: "Must be used in combination with other appropriate agents"
+            },
+
+            {
+                name:"Meningococcal meningitis prophylaxis",
+                dose: "Oral: 500 mg as a single dose", 
+                description: ""
+            },
+
+            {
+                name:"Neutropenia, antibacterial prophylaxis",
+                dose: "Oral: 500 - 750 mg twice daily", 
+                description: ""
+            },
+
+            {
+                name:"Neutropenic fever - low risk cancer patients",
+                dose: "Oral: 750 mg every 12 hours in combination with amoxicillin/clavulanate", 
+                description: "Continue therapy until fever and neutropenia have resolved. Administer first dose in health care setting and observe patient for 4 hours prior to discharge"
+            },
+
+            {
+                name:"Osteomyelitis",
+                dose: "<br><br> Oral treatment: 500 - 750 mg every 12 hours <br> Oral chronic suppression in presence of retained infected orthopedic hardware: 250 - 500 mg every 12 hours <br> IV 400 mg every 12 hours", 
+                description: "Duration should be > 6 weeks if treating pseudomonas"
+            },
+
+            {
+                name:"Plague - Post exposure prophylaxis",
+                dose: "Oral: 500 - 750 mg every 12 hours for 7 days ", 
+                description: ""
+            },
+
+            {
+                name:"Plague - Treatment (exlcuding meningitis)",
+                dose: "<br><br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 hours ", 
+                description: "Duration of therapy is usually 7 - 14 days"
+            },
+
+            {
+                name: "Pneumonia", 
+                dose: "<br><br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 hours", 
+                description:"Duration of therapy is usually 7 days"
+
+            },
+
+            {
+                name: "Acute Pouchitis", 
+                dose: "<br><br> Initial therapy: Oral: 500 mg every 12 hours for 14 days <br> Refractory disease: Oral: 500 mg every 12 hours for 28 days as part of a combination regimen", 
+                description:""
+
+            },
+
+            {
+                name: "Prostatits - Acute", 
+                dose: "<br><br> Oral: 500 mg every 12 hours for 2 - 4 weeks <br> IV: 400 mg every 12 hours for 2 - 4 weeks", 
+                description:""
+
+            },
+
+            {
+                name: "Prostatits - Chronic ", 
+                dose: "<br><br> Oral: 500 mg every 12 hours for 4 - 6 weeks <br> IV: 400 mg every 12 hours for 4 - 6 weeks", 
+                description:""
+
+            },
+
+            {
+                name: "Prosthetic Joint Infection - Treatment ", 
+                dose: "<br><br> <strong>Gram negative Bacilli:</strong> <br> Oral: 750 mg twice daily <br> IV: 400 mg every 12 hours <br><br> <strong>S.aureus oral continuation therapy:</strong><br> Oral: 500 - 750 mg twice daily in combination with rifampin for minimum of 3 months", 
+                description:""
+
+            },
+
+            {
+                name: "Prosthetic Joint Infection - Chronic Suppression for Pseudomonas ", 
+                dose: "Oral: 250 - 500 mg twice daily", 
+                description:""
+
+            },
+
+            {
+                name: "Rhinosinusitis", 
+                dose: "<br> Oral: 500 mg twice daily for 5 - 7 days <br> IV: 400 mg every 12 hours for 5 - 7 days", 
+                description:""
+
+            },
+
+            {
+                name: "Septic Arthritis", 
+                dose: "<br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 - 12 hours ", 
+                description:"Duration is usually 3 - 4 weeks including oral stepdown therapy"
+
+            },
+
+            {
+                name: "Sexually Transmitted Infections", 
+                dose: "<br> <strong>Chanchroid: </strong> Oral: 500 mg twice daily for 3 days <br> <strong>Gonorrhea</strong> Oral: 500 mg as a single dose", 
+                description:""
+
+            },
+
+            {
+                name: "Skin and Soft Tissue Infection", 
+                dose: "<br>Oral: 750 mg every 12 hours in combination with metronidazole<br> IV: 400 mg every 12 hours in combination with metronidazole", 
+                description:""
+
+            }, 
+
+            {
+                name: "Spontaneous bacterial peritonitis - Prophylaxis", 
+                dose: "Oral: 500 mg once daily (for patients with cirrhosis and GI bleed may use 500 mg twice daily", 
+                description:""
+
+            }, 
+
+            {
+                name: "Surgical Prophylaxis", 
+                dose: "<br> IV: 400 mg within 120 minutes prior to incision <br> Oral: 500 mg within 120 minutes prior to surgical incision ", 
+                description:""
+
+            },
+
+            {
+                name: "Tularemia - Treatment ", 
+                dose: "<br> IV: 400 mg every 8 hours<br> Oral: 750 mg twice daily", 
+                description:"Duration of therapy is usually 10 days"
+
+            },
+
+            {
+                name: "Tularemia - Postexposure Prophylaxis", 
+                dose: "Oral: 500 mg twice daily for 7 days", 
+                description:""
+
+            },
+
+            {
+                name: "Urinary tract infection - Cystitis (acute uncomplicated)", 
+                dose: "Oral: 250 - 500 mg every 12 hours", 
+                description:"Duration is 3 days for females and 5 days for males "
+            },
+
+            {
+                name: "Urinary tract infection - Complicated", 
+                dose: "<br><br>Oral: 500 - 750 mg every 12 hours<br> 400 mg every 8 - 12 hours", 
+                description:"Duration is usually 5 days including oral stepdown therapy"
+            }
+        ],
+        renalAdjustments: {
+            "> 50 - < 130": "Oral: 500 - 750 mg every 12 hours | IV: 400 mg every 8 - 12 hours",
+            "30 - 50": "Oral: 250 - 500 mg every 12 hours | IV: 400 mg every 8 - 12 hours",
+            "< 30": "Oral: 500 mg every 24 hours | IV: 200 - 400 mg every 12 - 24 hours",
+            "HD": "Oral: 250 - 500 mg every 24 hours | IV: 200 - 400 mg every 24 hours", 
+            "Peritoneal dialysis": "Oral: 250 - 500 mg every 24 hours | IV: 200 - 400 mg every 24 hours",
+            "CRRT": "Oral: 250 - 750 mg every 12 hours | IV: 200 - 400 mg every 8 - 12 hours",
+            "PIRRT": "Oral: 500 mg every 12 hours | IV: 400 mg every 12 hours",
+        }
+    },
+
+    "Delafloxacin": {
+        indications: [
+
+            {
+                name: "Pneumonia - Community Acquired", 
+                dose: "<br><br> Oral: 450 mg every 12 hours <br> IV: 300 mg every 12 hours", 
+                description:"Duration of therapy is minimum 5 days"
+
+            },
+
+            {
+                name: "Skin and skin structure infection", 
+                dose: "<br><br> Oral: 450 mg every 12 hours for 5 - 14 days <br> IV: 300 mg every 12 hours for 5 - 14 days", 
+                description:""
+
+            }, 
+
+        ],
+        renalAdjustments: {
+            " eGFR | > 30 - 89 ": "Oral and IV: No dose adjustment necessary",
+            "eGFR | 15 - 29": "Oral: No dose adjustment necessary | IV: 200 mg every 12 hours",
+            "eGFR | < 15": "Use not recommended",
+            "HD": "Use not recommended", 
+        }
+    },
+
+    "Ofloxacin": {
+        indications: [
+
+            {
+                name: "Epididymitis - Acute", 
+                dose: "<br><br> <strong>Enteric Organisms:</strong><br> Oral: 200 mg twice daily for 14 days <br> <strong>Sexually Transmitted Chlamydia and Gonorrhea:</strong><br> Oral: 200 mg twice daily for 10 days in combination with ceftriaxone", 
+                description:"Duration of therapy is minimum 5 days"
+
+            },
+
+            {
+                name:"Plague - Post exposure prophylaxis",
+                dose: "Oral: 400 mg every 12 hours for 7 days ", 
+                description: ""
+            },
+
+            {
+                name:"Plague - Treatment (exlcuding meningitis)",
+                dose: "Oral: 400 mg every 12 hours ", 
+                description: "Duration of therapy is usually 7 - 14 days"
+            },
+
+            {
+                name:"Prostatitis",
+                dose: "Oral: 300 mg every 12 hours for 6 weeks ", 
+                description: ""
+            },
+
+            {
+                name: "Pneumonia - Community Acquired", 
+                dose: " Oral: 400 mg every 12 hours", 
+                description:"Duration of therapy is minimum 5 days"
+
+            },
+
+            {
+                name: "Sexually Transmitted Infections", 
+                dose: "<br> <strong>Cervicitis/Urethritis: </strong><br> Oral: 300 mg every 12 hours for 7 days <br> <strong>Pelvic Inflammatory disease</strong><br> Oral: 400 mg every 12 hours for 10 - 14 days", 
+                description:"Combinatioin with metronidazole is recommended"
+
+            },
+
+            {
+                name: "Skin and skin structure infection", 
+                dose: "Oral: 400 mg every 12 hours for 5 - 14 days", 
+                description:""
+
+            }, 
+
+            {
+                name: "Typhoid and Paratyphoid Fever - Uncomplicated Treatment", 
+                dose: "Oral: 400 mg twice daily for 7 days", 
+                description:""
+
+            }, 
+
+            {
+                name: "Urinary tract infection - Cystitis (acute uncomplicated)", 
+                dose: "Oral: 200 mg every 12 hours", 
+                description:"Duration is 3 days for females and 5 days for males "
+            },
+
+            {
+                name: "Urinary tract infection - Complicated", 
+                dose: "Oral: 200 mg every 12 hours", 
+                description:"Duration is usually 5 days "
+            }
+
+        ],
+        renalAdjustments: {
+            "> 50": "No dose adjustment necessary",
+            "20 - 50": "Administer usual recommended dose every 24 hours",
+            "< 20": "Administer half of the usual recommended dose every 24 hours",
+            "Intermittent HD": "100 - 200 mg after dialysis", 
+            "Peritoneal dialysis": "200 mg every 24 hours", 
+            "CRRT": "300 mg every 24 hours", 
+
+        }
+    },
+
+    "Levofloxacin": {
+        indications: [
+
+             {
+                name:"Anthrax - Inhalational (Postexposure prophylaxis)",
+                dose: "<br>Oral: 500 mg every 24 hours", 
+                description: "Duration is usually 42 - 60 days"
+            },
+
+            {
+                name:"Anthrax - Cutaneous (Without meningitis)",
+                dose: "Oral: 750 mg every 24 hours for 7 - 10 days after naturally acquired infection", 
+                description: "After aerosol exposure treatment - switch to postexposure prophylaxis for 42 - 60 days"
+            },
+
+            {
+                name:"Anthrax - Systemic (Including meningitis)",
+                dose: "IV: 500 mg every 12 hours", 
+                description: "Use in combination with an appropriate combination regimen for > 2 weeks. "
+            },
+
+            {
+                name:"Bite Wound Infection - Prophylaxis and Treatment",
+                dose: "<br> <br> Oral: 500 - 750 mg twice daily <br> IV: 400 mg every 12 hours", 
+                description: "<br>Duration is usually 3 - 5 days for prophylaxis and 5 - 14 days for treatment"
+            },
+
+            {
+                name:"Bronchiectasis - Acute Exacerbation",
+                dose: "Oral: 500 - 750 mg twice daily", 
+                description: "Duration is usually up to 14 days"
+            },
+
+            {
+                name:"Cat Scratch Disease",
+                dose: "Oral: 500 mg twice daily", 
+                description: "Duration is usually 7 - 10 days"
+            },
+
+            {
+                name:"Cholera",
+                dose: "Oral: 1000 mg as a single dose", 
+                description: ""
+            },
+
+            {
+                name:"COPD Acute Exacerbation",
+                dose: "Oral: 750 mg twice daily", 
+                description: "Duration is usually 5 - 7 days"
+            },
+
+            {
+                name:"Crohns Disease - Perianal Fistulas",
+                dose: "Oral: 500 mg twice daily", 
+                description: "Use with or without metronidazole for up to 8 weeks"
+            },
+
+            {
+                name:"Diabetic Foot Infection",
+                dose: "<br><br> Mild to Moderate: Oral: 500 mg every 12 hours or 750 mg twice daily if pseudomonas is suspected <br> Moderate to Severe: IV: 400 mg every 12 hours or 400 mg every 8 hours if pseudomonas is expectecd", 
+                description: ""
+            },
+
+            {
+                name:"Infectious Diarrhea",
+                dose: "<br><br>Oral: 500 - 750 mg every 12 hours <br> IV: 400 mg every 12 hours", 
+                description: "<br> Streamline based on specific pathogen"
+            },
+
+            {
+                name:"Endocarditis treatment - HACEK organisms",
+                dose: "<br><br> Oral: 500 - 750 mg every 12 hours for 4 - 6 weeks depending on valve type (native vs prosthetic) <br> IV: 400 mg eveyr 8 - 12 hours for 4 - 6 weeks depending on valve type (native vs prosthetic)", 
+                description: ""
+            },
+
+            {
+                name:"Endocarditis treatment - MSSA step down therapy",
+                dose: "<br><br> Oral: 750 mg every 12 hours in combination with rifampin for total of 6 weeks including IV therapy", 
+                description: ""
+            },
+
+            {
+                name:"Intra-abdominal Infection - Cholecystitis",
+                dose: "<br><br> Oral: 500 mg every 12 hours <br> IV: 400 mg every 12 hours", 
+                description: "Continue for 1 day after gallbladder removal or until clinical resolution."
+            },
+
+            {
+                name:"Intra-abdominal Infection - Appendicitis, diverticulitis, intra-abdominal abscess",
+                dose: "<br><br> Oral: 500 mg every 12 hours in combination with metronidazole <br> IV: 400 mg every 12 hours in combination with metronidazole", 
+                description: "Duration is 4 - 5 days following adequate source control."
+            },
+
+            {
+                name:"Meningitis - Bacterial",
+                dose: "IV: 400 mg every 8 - 12 hours", 
+                description: "Must be used in combination with other appropriate agents"
+            },
+
+            {
+                name:"Meningococcal meningitis prophylaxis",
+                dose: "Oral: 500 mg as a single dose", 
+                description: ""
+            },
+
+            {
+                name:"Neutropenia, antibacterial prophylaxis",
+                dose: "Oral: 500 - 750 mg twice daily", 
+                description: ""
+            },
+
+            {
+                name:"Neutropenic fever - low risk cancer patients",
+                dose: "Oral: 750 mg every 12 hours in combination with amoxicillin/clavulanate", 
+                description: "Continue therapy until fever and neutropenia have resolved. Administer first dose in health care setting and observe patient for 4 hours prior to discharge"
+            },
+
+            {
+                name:"Osteomyelitis",
+                dose: "<br><br> Oral treatment: 500 - 750 mg every 12 hours <br> Oral chronic suppression in presence of retained infected orthopedic hardware: 250 - 500 mg every 12 hours <br> IV 400 mg every 12 hours", 
+                description: "Duration should be > 6 weeks if treating pseudomonas"
+            },
+
+            {
+                name:"Plague - Post exposure prophylaxis",
+                dose: "Oral: 500 - 750 mg every 12 hours for 7 days ", 
+                description: ""
+            },
+
+            {
+                name:"Plague - Treatment (exlcuding meningitis)",
+                dose: "<br><br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 hours ", 
+                description: "Duration of therapy is usually 7 - 14 days"
+            },
+
+            {
+                name: "Pneumonia", 
+                dose: "<br><br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 hours", 
+                description:"Duration of therapy is usually 7 days"
+
+            },
+
+            {
+                name: "Acute Pouchitis", 
+                dose: "<br><br> Initial therapy: Oral: 500 mg every 12 hours for 14 days <br> Refractory disease: Oral: 500 mg every 12 hours for 28 days as part of a combination regimen", 
+                description:""
+
+            },
+
+            {
+                name: "Prostatits - Acute", 
+                dose: "<br><br> Oral: 500 mg every 12 hours for 2 - 4 weeks <br> IV: 400 mg every 12 hours for 2 - 4 weeks", 
+                description:""
+
+            },
+
+            {
+                name: "Prostatits - Chronic ", 
+                dose: "<br><br> Oral: 500 mg every 12 hours for 4 - 6 weeks <br> IV: 400 mg every 12 hours for 4 - 6 weeks", 
+                description:""
+
+            },
+
+            {
+                name: "Prosthetic Joint Infection - Treatment ", 
+                dose: "<br><br> <strong>Gram negative Bacilli:</strong> <br> Oral: 750 mg twice daily <br> IV: 400 mg every 12 hours <br><br> <strong>S.aureus oral continuation therapy:</strong><br> Oral: 500 - 750 mg twice daily in combination with rifampin for minimum of 3 months", 
+                description:""
+
+            },
+
+            {
+                name: "Prosthetic Joint Infection - Chronic Suppression for Pseudomonas ", 
+                dose: "Oral: 250 - 500 mg twice daily", 
+                description:""
+
+            },
+
+            {
+                name: "Rhinosinusitis", 
+                dose: "<br> Oral: 500 mg twice daily for 5 - 7 days <br> IV: 400 mg every 12 hours for 5 - 7 days", 
+                description:""
+
+            },
+
+            {
+                name: "Septic Arthritis", 
+                dose: "<br> Oral: 750 mg every 12 hours <br> IV: 400 mg every 8 - 12 hours ", 
+                description:"Duration is usually 3 - 4 weeks including oral stepdown therapy"
+
+            },
+
+            {
+                name: "Sexually Transmitted Infections", 
+                dose: "<br> <strong>Chanchroid: </strong> Oral: 500 mg twice daily for 3 days <br> <strong>Gonorrhea</strong> Oral: 500 mg as a single dose", 
+                description:""
+
+            },
+
+            {
+                name: "Skin and Soft Tissue Infection", 
+                dose: "<br>Oral: 750 mg every 12 hours in combination with metronidazole<br> IV: 400 mg every 12 hours in combination with metronidazole", 
+                description:""
+
+            }, 
+
+            {
+                name: "Spontaneous bacterial peritonitis - Prophylaxis", 
+                dose: "Oral: 500 mg once daily (for patients with cirrhosis and GI bleed may use 500 mg twice daily", 
+                description:""
+
+            }, 
+
+            {
+                name: "Surgical Prophylaxis", 
+                dose: "<br> IV: 400 mg within 120 minutes prior to incision <br> Oral: 500 mg within 120 minutes prior to surgical incision ", 
+                description:""
+
+            },
+
+            {
+                name: "Tularemia - Treatment ", 
+                dose: "<br> IV: 400 mg every 8 hours<br> Oral: 750 mg twice daily", 
+                description:"Duration of therapy is usually 10 days"
+
+            },
+
+            {
+                name: "Tularemia - Postexposure Prophylaxis", 
+                dose: "Oral: 500 mg twice daily for 7 days", 
+                description:""
+
+            },
+
+            {
+                name: "Urinary tract infection - Cystitis (acute uncomplicated)", 
+                dose: "Oral: 250 - 500 mg every 12 hours", 
+                description:"Duration is 3 days for females and 5 days for males "
+            },
+
+            {
+                name: "Urinary tract infection - Complicated", 
+                dose: "<br><br>Oral: 500 - 750 mg every 12 hours<br> 400 mg every 8 - 12 hours", 
+                description:"Duration is usually 5 days including oral stepdown therapy"
+            }
+
+        ],
+        renalAdjustments: {
+            "> 50": "No dose adjustment necessary",
+            "20 - 50": "Administer usual recommended dose every 24 hours",
+            "< 20": "Administer half of the usual recommended dose every 24 hours",
+            "Intermittent HD": "100 - 200 mg after dialysis", 
+            "Peritoneal dialysis": "200 mg every 24 hours", 
+            "CRRT": "300 mg every 24 hours", 
+
+        }
+    },
+
+    "Moxifloxacin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Norfloxacin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Prulifloxacin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Gemifloxacin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Gatifloxacin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefazolin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefotetan": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefoxitin": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefuroxime": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefotaxime": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftizoxime": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefoperazone": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftriaxone": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftazidime": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefepime": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefepime-Enmetazobactam": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftazidime-Avibactam": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftaroline": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftobiprole": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Ceftolazone-Tazobactam": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    "Cefiderocol": {
+        indications: [
+
+             {
+                name:"Dosing Infromation Currently Being Updated ",
+                dose: "", 
+                description: ""
+            },
+
+        ],
+        renalAdjustments: {
+            "": "",
+
+        }
+    },
+
+    
+
+
+    
 
 
 
