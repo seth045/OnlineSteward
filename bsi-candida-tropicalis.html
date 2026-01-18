@@ -76,13 +76,13 @@
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
 <body class="bsi-page" data-bsi-cluster="candida_tropicalis">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
   <main class="outer-wrapper">
@@ -91,7 +91,6 @@
         ← Back to Fungemia
       </button>
 
-      <h1 class="page-title">Fungemia</h1>
 
       <div class="title-bar">
         Candida Tropicalis
@@ -125,12 +124,35 @@
           Alternative regimen
         </button>
         <div class="accordion-content">
+
+          <!-- Fallback plain text (used for other organisms / older data) -->
           <p id="bsi-alternative-text"></p>
+
+          <!-- Nested options (shown only when JS provides structured alternatives) -->
+          <div id="bsi-alt-options" style="display:none;">
+
+            <button class="accordion-header bsi-sub-accordion" type="button">
+              Low risk patients (non-neutropenic, not critically ill, no history of azole antifungal resistance)
+            </button>
+            <div class="accordion-content bsi-sub-content">
+              <p id="bsi-alt-lowrisk"></p>
+            </div>
+
+            <button class="accordion-header bsi-sub-accordion" type="button">
+              Unable to tolerate micafungin or fluconazole
+            </button>
+            <div class="accordion-content bsi-sub-content">
+              <p id="bsi-alt-intolerance"></p>
+            </div>
+
+          </div>
         </div>
       </section>
     </div>
   </main>
 
-  <script src="script.js"></script>
+<script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
