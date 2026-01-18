@@ -843,3 +843,13 @@ footer {
 .antibiotic-page .renal-table tr:nth-child(even) td {
   background: #fbfdff;
 }
+
+
+
+.abx-link {
+  color: #0a0501;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.abx-link:hover { text-decoration-thickness: 2px; }
