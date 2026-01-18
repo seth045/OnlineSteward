@@ -5,73 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Antimicrobial Guide - Decision Support</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
+
 </head>
 
-<body class="decision-support-page">
-  <!-- Top header bar -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <div class="brand-mark">OS</div>
-      <div class="brand-text">
-        <div class="brand-name">OnlineSteward</div>
-        <div class="brand-subtitle">Antimicrobial Guide</div>
-      </div>
+<body class="bacteria-page decision-support-page">
+  <header>
+    <div class="container">
+      <h1>Antibiotic Decision Support</h1>
     </div>
   </header>
 
-  <!-- Main content -->
-<main class="portal-shell decision-support-page">
-      <div class="ds-toprow">
-  <h1 class="ds-title">Antibiotic Decision Support</h1>
+  <div class="back-buttons">
+    <button class="back-button" onclick="goHome()">← Back to Home</button>
+  </div>
 
-  <!-- Home button -->
-  <a class="ds-home-btn" href="index.html">Home</a>
-</div>
+  <section id="decision-support-list">
+    <div class="container">
+      <ul class="bacteria-items decision-items">
+        <li class="ds-teal"><a href="bloodstream-infections.html">Verigene Bloodstream Infections</a></li>
+        <li class="ds-pink"><a href="skin-soft-tissue.html">Skin &amp; Soft Tissue Infections (SSTI)</a></li>
+        <li class="ds-orange"><a href="intraabdominal-infections.html">Intra-abdominal infections</a></li>
+        <li class="ds-magenta"><a href="pneumonia.html">Pneumonia</a></li>
+        <li class="ds-teal"><a href="uti.html">Urinary tract infections</a></li>
+        <li class="ds-pink"><a href="bonejoint.html">Bone &amp; joint infections</a></li>
+        <li class="ds-orange"><a href="CNS_infections.html">CNS infections</a></li>
+      </ul>
+    </div>
+  </section>
 
-      <!-- Tile grid -->
-      <div class="portal-tiles decision-tiles">
-
-        <button class="portal-tile portal-teal" type="button" onclick="goTo('bloodstream-infections.html')">
-          
-          <div class="portal-tile-label">Verigene Bloodstream Infection</div>
-        </button>
-
-        <button class="portal-tile portal-pink" type="button" onclick="goTo('skin-soft-tissue.html')">
-          
-          <div class="portal-tile-label">Skin &amp; Soft Tissue (SSTI)</div>
-        </button>
-
-        <button class="portal-tile portal-orange" type="button" onclick="goTo('intraabdominal-infections.html')">
-          
-          <div class="portal-tile-label">Intra-abdominal infections</div>
-        </button>
-
-        <button class="portal-tile portal-magenta" type="button" onclick="goTo('pneumonia.html')">
-          
-          <div class="portal-tile-label">Pneumonia</div>
-        </button>
-
-        <button class="portal-tile portal-teal" type="button" onclick="goTo('uti.html')">
-          
-          <div class="portal-tile-label">Urinary tract infections</div>
-        </button>
-
-        <button class="portal-tile portal-pink" type="button" onclick="goTo('bonejoint.html')">
-          
-          <div class="portal-tile-label">Bone &amp; joint infections</div>
-        </button>
-
-        <button class="portal-tile portal-orange" type="button" onclick="goTo('CNS_infections.html')">
-          
-          <div class="portal-tile-label">CNS infections</div>
-        </button>
-
-        <button class="portal-tile portal-magenta" type="button" onclick="goTo('Antibiogram.html')">
-          
-          <div class="portal-tile-label">Antibiogram susceptibilities</div>
-        </button>
-      </div>
-  </main>
+  <script src="script.js"></script>
+</body>
 
   <script src="script.js"></script>
 </body>
