@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neisseria Meningitidis</title>
+  <title>Enterobacteriaceae</title>
   <link rel="stylesheet" href="style.css" />
 
   <!--
@@ -75,7 +75,7 @@
 </head>
 
 <!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
-<body class="bsi-page" data-bsi-cluster="neisseria_meningitidis">
+<body class="bsi-page" data-bsi-cluster="enterobacteriaceae">
   <header class="site-header">
     <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
@@ -93,7 +93,7 @@
       </button>
 
       <div class="title-bar">
-        Neisseria Meningitidis
+        Enterobacteriaceae
       </div>
 
       <p class="page-subtitle">
@@ -101,8 +101,14 @@
       </p>
 
       <div class="resistance-tabs">
-        <button class="resistance-button active-resistance" data-bsi-marker="na">
+        <button class="resistance-button active-resistance" data-bsi-marker="negative">
           Negative
+        </button>
+        <button class="resistance-button" data-bsi-marker="ctxm">
+          CTX-M (ESBL)
+        </button>
+        <button class="resistance-button" data-bsi-marker="carbapenem_resistance">
+          Carbapenem resistance (CRE)
         </button>
       </div>
 

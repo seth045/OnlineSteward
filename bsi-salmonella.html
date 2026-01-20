@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salmonella</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    IMPORTANT:
+    Your style.css later redefines .accordion-content to display:none (for other sections),
+    which breaks BSI pages because script.js toggles .open on the CONTENT element itself.
+    This scoped override restores the intended BSI accordion behavior.
+  -->
+  <style>
+    .bsi-page .accordion-header{
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 14px auto 0 auto;
+      padding: 14px 16px;
+      background-color: #f9fafb;
+      border-radius: 6px 6px 0 0;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--integris-teal);
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-main);
+      font-weight: 600;
+      appearance: none;
+    }
+
+    .bsi-page .accordion-header:hover,
+    .bsi-page .accordion-header:focus-visible{
+      background-color: #ecfdf5;
+      border-color: var(--integris-teal-dark);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .bsi-page .accordion-content{
+      display: block;             /* critical override */
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      padding: 0 16px;
+      background-color: #ffffff;
+      border-left: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      border-radius: 0 0 6px 6px;
+      transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+    }
+
+    .bsi-page .accordion-content p{
+      padding: 10px 0 14px 0;
+      text-align: left;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      white-space: pre-line; /* <-- IMPORTANT: preserves \n line breaks */
+    }
+
+    .bsi-page .accordion-content.open{
+      max-height: 520px; /* roomy so regimens never look empty */
+      opacity: 1;
+      padding-top: 8px;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+
+<!-- IMPORTANT: data-bsi-cluster tells script.js which regimens to use -->
+<body class="bsi-page" data-bsi-cluster="salmonella">
+  <header class="site-header">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
+      <div class="brand-mark">OS</div>
+      <div class="brand-text">
+        <div class="brand-name">OnlineSteward</div>
+        <div class="brand-subtitle">Antimicrobial Guide</div>
+      </div>
+    </a>
+  </header>
+
+  <main class="outer-wrapper">
+    <div class="page-container">
+      <button class="back-button" onclick="goTo('bloodstream-infections.html')">
+        ← Back to bloodstream infections
+      </button>
+
+      <div class="title-bar">
+        Salmonella
+      </div>
+
+      <p class="page-subtitle">
+        Select the resistance marker result for this isolate.
+      </p>
+
+      <div class="resistance-tabs">
+        <button class="resistance-button active-resistance" data-bsi-marker="na">
+          Negative
+        </button>
+      </div>
+
+      <section class="bsi-result">
+        <p class="bsi-summary">
+          Resistance marker:
+          <strong><span id="bsi-marker-label">Negative</span></strong>
+        </p>
+
+        <button class="accordion-header" type="button">
+          Recommended regimen
+        </button>
+        <div class="accordion-content">
+          <p id="bsi-recommended-text"></p>
+        </div>
+
+        <button class="accordion-header" type="button">
+          Alternative regimen
+        </button>
+        <div class="accordion-content">
+          <p id="bsi-alternative-text"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  
+  
+<script src="script.js" defer></script>
+<script src="bacteria-script.js" defer></script>
+<script src="empiric_abx_regimen_links.js" defer></script>
+
+<!-- Optional: auto-open Recommended on load -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const firstHeader = document.querySelector(".bsi-page .accordion-header");
+    if (firstHeader) firstHeader.click();
+  });
+</script>
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>
