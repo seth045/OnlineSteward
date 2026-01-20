@@ -58,12 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
             "Piperacillin/Tazobactam 4.5 grams every 8 hours"
         },
         ctxm: {
+          id_consult: true,
           rec:
             "Ertapenem 1 gram every 24 hours OR Meropenem 1 gram every 8 hours",
           alt:
             "ID consult"
         },
         carbapenem_resistance: {
+          id_consult: true,
           rec:
             "ID consult",
           alt:
@@ -79,12 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
             "Ertapenem 1 gram every 24 hours OR Meropenem 1 gram every 8 hours"
         },
         ctxm: {
+          id_consult: true,
           rec:
             "Ertapenem 1 gram every 24 hours OR Meropenem 1 gram every 8 hours",
           alt:
             "ID consult"
         },
         carbapenem_resistance: {
+          id_consult: true,
           rec:
             "ID consult",
           alt:
@@ -104,14 +108,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // --- Gram-positive cocci ---
       staph_aureus: {
         negative: {
-          note: "ID Consult Required",
+          id_consult: true,
           rec:
             "Cefazolin 2 grams every 8 hours + ID consult",
           alt:
             "Nafcillin 12 grams/day + ID consult"
         },
         meca: {
-          note: "ID Consult Required",
+          id_consult: true,
           rec:
             "Vancomycin + ID consult",
           alt:
@@ -121,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       staph_lugdunensis: {
         na: {
+          id_consult: true,
           rec:
             "Cefazolin 2 grams every 8 hours + ID consult",
           alt:
@@ -213,57 +218,113 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
 
-      enterobacteriaceae_morganellaceae: {
-        na: {
+      enterobacteriaceae: {
+        negative: {
           rec:
-            "Information being updated",
-          alt:
-            "Information being updated"
-        }
+            "Cefepime 2 grams IV Q8H",
+          alt:`
+      Ertapenem 1 gram IV Q24H 
+      OR
+      Meropenem 1 gram IV Q8H`
+        }, 
+
+        ctxm: {
+          rec: "Ertapenem 1 gram IV Q24H", 
+          alt: "Meropenem 1 gram IV Q8H"
+        }, 
+
+        carbapenem_resistance: {
+          id_consult: true, 
+          restricted_for_id_only: true,
+          rec: "Meropenem-vaborbactam 4 grams IV Q8H infused over 3 hours",
+          alt: "Ceftazidime-avibactam 2.5 grams IV Q8H infused over 3 hours"
+        },
+      },
+
+      morganellaceae: {
+        negative: {
+          rec:`
+      Cefepime 2 grams IV Q8H 
+      OR
+      Piperacillin-Tazobactam 4.5 grams IV Q6H`,
+          alt:`
+      Ertapenem 1 gram IV Q24H 
+      OR
+      Meropenem 1 gram IV Q8H`
+        }, 
+
+        ctxm: {
+          rec: "Ertapenem 1 gram IV Q24H", 
+          alt: "Meropenem 1 gram IV Q8H"
+        }, 
       },
 
       salmonella: {
         na: {
           rec:
-            "Information being updated",
-          alt:
-            "Information being updated"
+            "Ceftriaxone 2 grams IV Q24H",
+          alt:`
+      Ciprofloxacin 400 mg IV Q12H 
+      OR
+      Ciprofloxacin 750 mg PO BID`
         }
       },
 
       serratia: {
         na: {
-          rec:
-            "Information being updated",
-          alt:
-            "Information being updated"
+          rec:`
+      Ceftriaxone 2 grams IV Q24H  
+      OR
+      Cefepime 1-2 grams IV Q8H
+      OR
+      Piperacillin-tazobactam 4.5 grams IV Q6H`,
+          alt:`
+      Ciprofloxacin 400 mg IV Q12H 
+      OR
+      Ertapenem 1 gram IV Q24H
+      OR
+      Meropenem 1 gram IV Q8H`
+        }, 
+
+        ctxm:{
+          rec: "Ertapenem 1 gram IV Q24H",
+          alt: "Meropenem 1 gram IV Q8H"
         }
       },
 
       haemophilus_influenzae: {
         na: {
           rec:
-            "Information being updated",
+            "Ceftriaxone 1-2 grams IV Q12-24H",
           alt:
-            "Information being updated"
+            "Ciprofloxacin 400 mg IV Q8H"
         }
       },
 
       neisseria_meningitidis: {
         na: {
           rec:
-            "Information being updated",
+            "Ceftriaxone 2 grams IV Q12H",
           alt:
-            "Information being updated"
+            "Meropenem 1 gram IV Q8H"
         }
       },
 
       stenotrophomonas_maltophilia: {
         na: {
-          rec:
-            "Information being updated ",
+          id_consult: true, 
+          rec:`
+            Sulfamethoxazole-Trimethoprim 8-12 mg/kg/day (trimethoprim component) in 2-3 divided doses 
+            +
+            Minocycline 200 mg IV Q12H`,
           alt:
-            "Information being updated "
+            `Sulfamethoxazole-Trimethoprim 8-12 mg/kg/day (trimethoprim component) in 2-3 divided doses
+
+            Minocycline 200 mg IV Q12H
+             
+            Cefiderocol 2 grams IV Q8H
+
+            Levofloxacin 750 mg IV Q24H`
         }
       },
 
@@ -281,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       candida_auris: {
         na: {
-          note: "Order Contact Precautions",
           rec: "Micafungin 100 mg IV Q24H",
           alt: "Liposomal amphotericin B 5 mg/kg IV Q24H"
         }
@@ -303,9 +363,9 @@ document.addEventListener("DOMContentLoaded", function () {
         na: {
           rec: "Micafungin 100 mg IV Q24H",
           alt: `
-      • Liposomal amphotericin B 3–5 mg/kg IV Q24H
+      Liposomal amphotericin B 3–5 mg/kg IV Q24H
       OR
-      • Fluconazole 12 mg/kg IV x 1, then 6 mg/kg IV Q24H`
+      Fluconazole 12 mg/kg IV x 1, then 6 mg/kg IV Q24H`
         }
       },
 
@@ -407,15 +467,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
           alt: {
             induction:
-              "• Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Flucytosine 25 mg/kg PO QID\n" +
+              "Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Flucytosine 25 mg/kg PO QID\n" +
               "OR\n"+
-              "• Liposomal amphotericin B 3–4 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
+              "Liposomal amphotericin B 3–4 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
               "OR\n"+
-              "• Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
+              "Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
               "OR\n"+
-              "• Fluconazole 400–800 mg IV/PO Q24H + Flucytosine 25 mg/kg PO QID\n" +
+              "Fluconazole 400–800 mg IV/PO Q24H + Flucytosine 25 mg/kg PO QID\n" +
               "OR\n"+
-              "• Fluconazole 1200 mg IV/PO Q24H\n" +
+              "Fluconazole 1200 mg IV/PO Q24H\n" +
               "\nDuration: 2 weeks (or until sufficient response)",
 
             consolidation:
@@ -439,15 +499,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
           alt: {
             induction:
-              "• Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Flucytosine 25 mg/kg PO QID\n" +
+              "Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Flucytosine 25 mg/kg PO QID\n" +
               "OR\n"+
-              "• Liposomal amphotericin B 3–4 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
+              "Liposomal amphotericin B 3–4 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
               "OR\n"+
-              "• Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
+              "Amphotericin B deoxycholate 0.7–1 mg/kg IV Q24H + Fluconazole 800 mg IV/PO Q24H\n" +
               "OR\n"+
-              "• Fluconazole 400–800 mg IV/PO Q24H + Flucytosine 25 mg/kg PO QID\n" +
+              "Fluconazole 400–800 mg IV/PO Q24H + Flucytosine 25 mg/kg PO QID\n" +
               "OR\n"+
-              "• Fluconazole 1200 mg IV/PO Q24H\n" +
+              "Fluconazole 1200 mg IV/PO Q24H\n" +
               "\nDuration: 2 weeks (or until sufficient response)",
 
             consolidation:
@@ -455,6 +515,14 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       },
+
+
+      nonpurulentcellulitismrsa: {
+        na: {
+          rec: "Ceftriaxone + Vancomycin for 5-7 days", 
+          alt: "Ampicillin/sulbactam + Vancomycin for 5-7 days"
+        }
+      }
 
     };
 
@@ -542,7 +610,51 @@ function renderPhaseAccordions(wrap, phases, prefix) {
       btn.addEventListener("click", () => {
         const key = btn.dataset.bsiMarker;
         const data = clusterData[key];
-        const noteBox = document.getElementById("bsi-note");
+        // If the page doesn't already have a note container, create one under the marker label.
+        // NOTE banner (ID consult / restricted meds)
+        // This creates the note area automatically on any BSI page (so you don't have to edit every HTML file).
+        let noteBox = document.getElementById("bsi-note");
+
+        if (!noteBox) {
+          const summary = document.querySelector(".bsi-summary"); // "Resistance marker: ..."
+          if (summary) {
+            noteBox = document.createElement("div");
+            noteBox.id = "bsi-note";
+            noteBox.style.display = "none";
+            noteBox.style.marginTop = "10px";
+            noteBox.style.padding = "12px 14px";
+            noteBox.style.border = "1px solid #fde68a";
+            noteBox.style.borderLeft = "5px solid #f59e0b";
+            noteBox.style.background = "#fffbeb";
+            noteBox.style.borderRadius = "10px";
+            noteBox.style.color = "#111827";
+            noteBox.style.fontSize = "0.95rem";
+            noteBox.style.lineHeight = "1.35";
+            summary.insertAdjacentElement("afterend", noteBox);
+          }
+        }
+
+
+        function renderBsiNote(data) {
+          if (!noteBox) return;
+
+          const parts = [];
+          if (data?.note) parts.push(data.note);
+          if (data?.id_consult) parts.push("ID consult required.");
+          if (Array.isArray(data?.restricted) && data.restricted.length) {
+            parts.push(`Restricted: ${data.restricted.join(", ")}.`);
+          }
+
+          if (parts.length) {
+            noteBox.textContent = parts.join(" ");
+            noteBox.style.display = "block";
+          } else {
+            noteBox.textContent = "";
+            noteBox.style.display = "none";
+          }
+        }
+
+        
 
         // Highlight active button
         markerButtons.forEach((b) =>
@@ -555,12 +667,38 @@ function renderPhaseAccordions(wrap, phases, prefix) {
 
         const isPlainObject = (v) => v && typeof v === "object" && !Array.isArray(v);
 
+        const RESTRICTED_FOOTNOTE = "\n\n* Restricted for ID use only";
+        const withRestricted = (text, restricted) =>
+          restricted ? `${text}${RESTRICTED_FOOTNOTE}` : text;
+
+
         const closeInnerAccordions = (root) => {
           if (!root) return;
           root.querySelectorAll(".accordion-content.open").forEach((el) => el.classList.remove("open"));
         };
 
         if (data) {
+            // ---------- NOTE (optional) ----------
+          if (noteBox) {
+            const parts = [];
+
+            if (data.id_consult) parts.push("Order ID Consult");
+
+            if (Array.isArray(data.restricted) && data.restricted.length) {
+              parts.push("Restricted: " + data.restricted.join(", ") + ".");
+            }
+
+            const noteText = parts.join(" ");
+
+            if (noteText) {
+              noteBox.textContent = noteText;
+              noteBox.style.display = "block";
+            } else {
+              noteBox.textContent = "";
+              noteBox.style.display = "none";
+            }
+          }
+
           // ---------- Recommended ----------
           const recIsPhased =
             isPlainObject(data.rec) &&
@@ -571,15 +709,16 @@ function renderPhaseAccordions(wrap, phases, prefix) {
             recText.style.display = "none";
             recPhasesWrap.style.display = "block";
 
-            recInduction.textContent = data.rec.induction || "—";
-            recConsolidation.textContent = data.rec.consolidation || "—";
-            recMaintenance.textContent = data.rec.maintenance || "—";
+            recInduction.textContent = withRestricted(data.rec.induction || "—", data.restricted_for_id_only);
+            recConsolidation.textContent = withRestricted(data.rec.consolidation || "—", data.restricted_for_id_only);
+            recMaintenance.textContent = withRestricted(data.rec.maintenance || "—", data.restricted_for_id_only);
+
 
             closeInnerAccordions(recPhasesWrap);
           } else {
             if (recPhasesWrap) recPhasesWrap.style.display = "none";
             recText.style.display = "block";
-            recText.textContent = data.rec || "—";
+            recText.textContent = withRestricted(data.rec || "—", data.restricted_for_id_only);
           }
 
           // ---------- Alternative ----------
@@ -594,8 +733,9 @@ function renderPhaseAccordions(wrap, phases, prefix) {
             if (altOptionsWrap) altOptionsWrap.style.display = "none";
 
             altPhasesWrap.style.display = "block";
-            altInduction.textContent = data.alt.induction || "—";
-            altConsolidation.textContent = data.alt.consolidation || "—";
+            altInduction.textContent = withRestricted(data.alt.induction || "—", data.restricted_for_id_only);
+            altConsolidation.textContent = withRestricted(data.alt.consolidation || "—", data.restricted_for_id_only);
+
 
 
             closeInnerAccordions(altPhasesWrap);
@@ -605,8 +745,9 @@ function renderPhaseAccordions(wrap, phases, prefix) {
             if (altPhasesWrap) altPhasesWrap.style.display = "none";
 
             altOptionsWrap.style.display = "block";
-            altLowRisk.textContent = data.alt.low_risk || "—";
-            altIntolerance.textContent = data.alt.intolerance || "—";
+            altLowRisk.textContent = withRestricted(data.alt.low_risk || "—", data.restricted_for_id_only);
+            altIntolerance.textContent = withRestricted(data.alt.intolerance || "—", data.restricted_for_id_only);
+
 
             closeInnerAccordions(altOptionsWrap);
           } else {
@@ -614,7 +755,8 @@ function renderPhaseAccordions(wrap, phases, prefix) {
             if (altOptionsWrap) altOptionsWrap.style.display = "none";
 
             altText.style.display = "block";
-            altText.textContent = data.alt || "—";
+            altText.textContent = withRestricted(data.alt || "—", data.restricted_for_id_only);
+
           }
         } else {
           if (recPhasesWrap) recPhasesWrap.style.display = "none";
