@@ -520,69 +520,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       cellulitis: {
-      nonpurulent: {
-        oral: {
-          no_mrsa: "Cephalexin 500 mg PO Q6H",          
-          mrsa: 
-          `
-          Trimethoprim-Sulfamethoxazole two 800/160 mg tabs BID
-          OR 
-          Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID 
-          OR 
-          Linezolid 600 mg PO BID`              
-        },
-        parenteral: {
-          no_mrsa: `Cefazolin 1-2 g IV Q8H
-          OR
-          Ampicillin-sulbactam 1.5 g IV Q6H`,
-          mrsa: `Pharmacy to dose Vancomycin
-          OR
-          Daptomycin 4-6 mg/kg IV Q24H 
-          OR
-          Linezolid 600 mg IV BID
-          OR
-          Oritavancin 1200 mg IV x 1 dose (Restricted to ER)`              
-          },
-          septic: {
-            recommended: "Cefepime 2 g IV Q8H + Pharmacy to dose Vancomycin",
-            hx_esbl: "Meropenem 1 g IV Q8H + Pharmacy to dose Vancomycin",           
-            severe_pcn_allergy: 
+        nonpurulent: {
+          oral: {
+            no_mrsa: "Cephalexin 500 mg PO Q6H",          
+            mrsa: 
             `
-            Levofloxacin 750 mg IV Q24H + Pharmacy to dose Vancomycin
+            Trimethoprim-Sulfamethoxazole two 800/160 mg tabs BID
             OR 
-            Aztreonam 2 g IV Q8H + Pharmacy to dose Vancomycin` 
+            Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID 
+            OR 
+            Linezolid 600 mg PO BID`              
           },
-        },
+          parenteral: {
+            no_mrsa: `Cefazolin 1-2 g IV Q8H
+            OR
+            Ampicillin-sulbactam 1.5 g IV Q6H`,
+            mrsa: `Pharmacy to dose Vancomycin
+            OR
+            Daptomycin 4-6 mg/kg IV Q24H 
+            OR
+            Linezolid 600 mg IV BID
+            OR
+            Oritavancin 1200 mg IV x 1 dose (Restricted to ER)`              
+            },
+            septic: {
+              recommended: "Cefepime 2 g IV Q8H + Pharmacy to dose Vancomycin",
+              hx_esbl: "Meropenem 1 g IV Q8H + Pharmacy to dose Vancomycin",           
+              severe_pcn_allergy: 
+              `
+              Levofloxacin 750 mg IV Q24H + Pharmacy to dose Vancomycin
+              OR 
+              Aztreonam 2 g IV Q8H + Pharmacy to dose Vancomycin` 
+            },
+          },
 
-      purulent_abscess: {
-        oral:`Trimethopreim-Sulfamethoxazole two 800/160 mg tabs BID
-        OR
-        Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID
-        OR 
-        Linezolid 600 mg PO BID` ,
-        parenteral:`Pharmacy to dose Vancomycin 
-        OR
-        Daptomycin 6 mg/kg IV Q24H 
-        OR 
-        Linezolid 600 mg IV BID`
-        },
+        purulent_abscess: {
+          oral:`Trimethopreim-Sulfamethoxazole two 800/160 mg tabs BID
+          OR
+          Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID
+          OR 
+          Linezolid 600 mg PO BID` ,
+          parenteral:`Pharmacy to dose Vancomycin 
+          OR
+          Daptomycin 6 mg/kg IV Q24H 
+          OR 
+          Linezolid 600 mg IV BID`
+          },
 
-        necrotizing_fascitis: {
-        rec: `
-        Piperacillin-Tazobactam 3.375 g IV Q6H
-        +
-        Pharmacy to Dose Vancomycin
-        +
-        Clindamycin 900 mg IV Q8H 
-        `,
-        alt: `
-        Meropenem 1 g IV Q8H
-        +
-        Pharmacy to Dose Vancomycin
-        +
-        Clindamycin 900 mg IV Q8H 
-        `,
-        },
+          necrotizing_fascitis: {
+          rec: `
+          Piperacillin-Tazobactam 3.375 g IV Q6H
+          +
+          Pharmacy to Dose Vancomycin
+          +
+          Clindamycin 900 mg IV Q8H 
+          `,
+          alt: `
+          Meropenem 1 g IV Q8H
+          +
+          Pharmacy to Dose Vancomycin
+          +
+          Clindamycin 900 mg IV Q8H 
+          `,
+          },
       }
         
 
@@ -952,7 +952,6 @@ if (
     }
   }
 });
-
 
   
   
