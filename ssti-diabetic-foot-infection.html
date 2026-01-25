@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetic Foot Infections</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Same scoped accordion override you used on cellulitis.html -->
+  <style>
+    .bsi-page .accordion-header{
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 14px auto 0 auto;
+      padding: 14px 16px;
+      background-color: #f9fafb;
+      border-radius: 6px 6px 0 0;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--integris-teal);
+      font-size: 1rem;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text-main);
+      font-weight: 600;
+      appearance: none;
+    }
+
+    .bsi-page .accordion-header:hover,
+    .bsi-page .accordion-header:focus-visible{
+      background-color: #ecfdf5;
+      border-color: var(--integris-teal-dark);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .bsi-page .accordion-content{
+      display: block;             /* critical override */
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      padding: 0 16px;
+      background-color: #ffffff;
+      border-left: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      border-radius: 0 0 6px 6px;
+      transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+    }
+
+    .bsi-page .accordion-content p{
+      padding: 10px 0 14px 0;
+      text-align: left;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .bsi-page .accordion-content.open{
+      max-height: 2000px;
+      opacity: 1;
+      padding-top: 8px;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+
+<!-- IMPORTANT: data-bsi-cluster must match script.js key -->
+<body class="bsi-page" data-bsi-cluster="diabetic_foot_infections">
+  <header class="site-header">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
+      <div class="brand-mark">OS</div>
+      <div class="brand-text">
+        <div class="brand-name">OnlineSteward</div>
+        <div class="brand-subtitle">Antimicrobial Guide</div>
+      </div>
+    </a>
+  </header>
+
+  <main class="outer-wrapper">
+    <div class="page-container">
+      <button class="back-button" onclick="goTo('skin-soft-tissue.html')">
+        ← Back to Skin and Soft Tissue Infections
+      </button>
+
+      <div class="title-bar">
+        Diabetic Foot Infections
+      </div>
+
+      <!-- Top-level tabs -->
+      <div class="resistance-tabs">
+        <button class="resistance-button active-resistance" data-bsi-marker="mild">
+          Mild Infection
+        </button>
+        <button class="resistance-button" data-bsi-marker="moderate_severe">
+          Moderate/Severe Infection
+        </button>
+      </div>
+
+      <section class="bsi-result">
+        <p class="bsi-summary">
+          Infection severity:
+          <strong><span id="bsi-marker-label">Mild Infection</span></strong>
+        </p>
+
+        <!-- Keep default wrapper for safety, but we won't use it for DFI -->
+        <div id="bsi-default-regimens" style="display:none;">
+          <button class="accordion-header" type="button">Recommended regimen</button>
+          <div class="accordion-content"><p id="bsi-recommended-text"></p></div>
+
+          <button class="accordion-header" type="button">Alternative regimen</button>
+          <div class="accordion-content"><p id="bsi-alternative-text"></p></div>
+        </div>
+
+        <!-- MILD -->
+        <div id="bsi-dfi-mild-regimens" style="display:none;">
+          <button class="accordion-header" type="button">No MRSA Risk Factors</button>
+          <div class="accordion-content"><p id="dfi-mild-no-mrsa"></p></div>
+
+          <button class="accordion-header" type="button">MRSA Risk Factors</button>
+          <div class="accordion-content"><p id="dfi-mild-mrsa"></p></div>
+        </div>
+
+        <!-- MODERATE / SEVERE -->
+        <div id="bsi-dfi-modsev-regimens" style="display:none;">
+          <button class="accordion-header" type="button">No MDRO Risk Factors</button>
+          <div class="accordion-content">
+            <button class="accordion-header" type="button">Recommended</button>
+            <div class="accordion-content"><p id="dfi-modsev-no-mdro-rec"></p></div>
+
+            <button class="accordion-header" type="button">Alternative</button>
+            <div class="accordion-content"><p id="dfi-modsev-no-mdro-alt"></p></div>
+          </div>
+
+          <button class="accordion-header" type="button">Pseudomonal Risk Factors</button>
+          <div class="accordion-content">
+            <button class="accordion-header" type="button">Recommended</button>
+            <div class="accordion-content"><p id="dfi-modsev-pseudo-rec"></p></div>
+
+            <button class="accordion-header" type="button">Alternative</button>
+            <div class="accordion-content"><p id="dfi-modsev-pseudo-alt"></p></div>
+          </div>
+
+          <button class="accordion-header" type="button">MRSA Risk Factors</button>
+          <div class="accordion-content">
+            <button class="accordion-header" type="button">Recommended</button>
+            <div class="accordion-content"><p id="dfi-modsev-mrsa-rec"></p></div>
+
+            <button class="accordion-header" type="button">Alternative</button>
+            <div class="accordion-content"><p id="dfi-modsev-mrsa-alt"></p></div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+  <script src="bacteria-script.js" defer></script>
+  <script src="empiric_abx_regimen_links.js" defer></script>
+</body>
+</html>
