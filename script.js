@@ -544,8 +544,12 @@ document.addEventListener("DOMContentLoaded", function () {
             Oritavancin 1200 mg IV x 1 dose (Restricted to ER)`              
             },
             septic: {
-              recommended: "Cefepime 2 g IV Q8H + Pharmacy to dose Vancomycin",
-              hx_esbl: "Meropenem 1 g IV Q8H + Pharmacy to dose Vancomycin",           
+              recommended: `Cefepime 2 g IV Q8H 
+              + 
+              Pharmacy to dose Vancomycin`,
+              hx_esbl: `Meropenem 1 g IV Q8H
+              + 
+              Pharmacy to dose Vancomycin`,           
               severe_pcn_allergy: 
               `
               Levofloxacin 750 mg IV Q24H + Pharmacy to dose Vancomycin
