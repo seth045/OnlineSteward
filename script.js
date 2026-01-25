@@ -544,12 +544,8 @@ document.addEventListener("DOMContentLoaded", function () {
             Oritavancin 1200 mg IV x 1 dose (Restricted to ER)`              
             },
             septic: {
-              recommended: `Cefepime 2 g IV Q8H 
-              + 
-              Pharmacy to dose Vancomycin`,
-              hx_esbl: `Meropenem 1 g IV Q8H
-              + 
-              Pharmacy to dose Vancomycin`,           
+              recommended: "Cefepime 2 g IV Q8H + Pharmacy to dose Vancomycin",
+              hx_esbl: "Meropenem 1 g IV Q8H + Pharmacy to dose Vancomycin",           
               severe_pcn_allergy: 
               `
               Levofloxacin 750 mg IV Q24H + Pharmacy to dose Vancomycin
@@ -587,7 +583,41 @@ document.addEventListener("DOMContentLoaded", function () {
           Clindamycin 900 mg IV Q8H 
           `,
           },
-      }
+      },
+
+
+      diabetic_foot_infections:{
+        mild: {
+            no_mrsa: `Cephalexin 500 mg PO QID
+            OR
+            Amoxicillin-clavulanate 875 mg PO BID
+            OR 
+            Clindamycin 300 mg PO TID`,
+            mrsa: `Sulfamethoxazole/Trimethoprim two 800/160 mg tabs BID
+            OR 
+            Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID`
+          },
+
+          moderate_severe: {
+            no_mdro: {
+              recommended: "Ceftriaxone 1-2 g IV Q24H",
+              alternative: "Levofloxacin 500-750 mg IV Q24H"
+            },
+            pseudomonal: {
+              recommended: "Cefepime 2 g IV Q8H",
+              alternative: "Piperacillin-Tazobactam 4.5 g IV Q6H"
+            },
+            mrsa: {
+              recommended: "Add Pharmacy to dose Vancomycin",
+              alternative: `Add one of the following: 
+              
+              Daptomycin 6 mg/kg IV Q24H 
+              OR 
+              Linezolid 600 mg IV Q12H
+              `
+            }
+          }
+      },
         
 
     };
@@ -713,6 +743,51 @@ function renderPurulentAbscessUI(data, withRestricted) {
   set("pa-parenteral", data?.parenteral);
 }
 
+function renderDfiMildUI(data, withRestricted) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const mildWrap = document.getElementById("bsi-dfi-mild-regimens");
+  const modsevWrap = document.getElementById("bsi-dfi-modsev-regimens");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (mildWrap) mildWrap.style.display = "block";
+  if (modsevWrap) modsevWrap.style.display = "none";
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  set("dfi-mild-no-mrsa", data?.no_mrsa);
+  set("dfi-mild-mrsa", data?.mrsa);
+}
+
+function renderDfiModSevUI(data, withRestricted) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const mildWrap = document.getElementById("bsi-dfi-mild-regimens");
+  const modsevWrap = document.getElementById("bsi-dfi-modsev-regimens");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (mildWrap) mildWrap.style.display = "none";
+  if (modsevWrap) modsevWrap.style.display = "block";
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  set("dfi-modsev-no-mdro-rec", data?.no_mdro?.recommended);
+  set("dfi-modsev-no-mdro-alt", data?.no_mdro?.alternative);
+
+  set("dfi-modsev-pseudo-rec", data?.pseudomonal?.recommended);
+  set("dfi-modsev-pseudo-alt", data?.pseudomonal?.alternative);
+
+  set("dfi-modsev-mrsa-rec", data?.mrsa?.recommended);
+  set("dfi-modsev-mrsa-alt", data?.mrsa?.alternative);
+}
+
+
 
 function renderDefaultBsiUI() {
   const defaultWrap = document.getElementById("bsi-default-regimens");
@@ -791,7 +866,38 @@ function renderDefaultBsiUI() {
         const withRestricted = (text, restricted) =>
           restricted ? `${text}${RESTRICTED_FOOTNOTE}` : text;
 
-        // Special case: Non-purulent cellulitis needs Oral/Parenteral/Septic + sub-buttons
+
+
+
+
+// Special case: Diabetic Foot Infections (DFI)
+if (
+  clusterId === "diabetic_foot_infections" &&
+  key === "mild" &&
+  document.getElementById("bsi-dfi-mild-regimens")
+) {
+  renderDfiMildUI(data, withRestricted);
+
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
+
+if (
+  clusterId === "diabetic_foot_infections" &&
+  key === "moderate_severe" &&
+  document.getElementById("bsi-dfi-modsev-regimens")
+) {
+  renderDfiModSevUI(data, withRestricted);
+
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
+
+// Special case: Non-purulent cellulitis needs Oral/Parenteral/Septic + sub-buttons
 if (
   clusterId === "cellulitis" &&
   key === "nonpurulent" &&
@@ -956,6 +1062,5 @@ if (
     }
   }
 });
-
   
   
