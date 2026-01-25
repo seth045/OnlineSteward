@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purulent Cellulitis / Abscess</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .bsi-page .accordion-header{
+      display:block; width:100%; max-width:600px;
+      margin:14px auto 0; padding:14px 16px;
+      background:#f9fafb; border-radius:6px 6px 0 0;
+      border:1px solid var(--border-subtle);
+      border-left:4px solid var(--integris-teal);
+      font-weight:600; cursor:pointer;
+    }
+    .bsi-page .accordion-content{
+      display:block; width:100%; max-width:600px;
+      margin:0 auto; overflow:hidden;
+      max-height:0; opacity:0; padding:0 16px;
+      background:#fff;
+      border-left:1px solid var(--border-subtle);
+      border-right:1px solid var(--border-subtle);
+      border-bottom:1px solid var(--border-subtle);
+      border-radius:0 0 6px 6px;
+      transition:max-height .25s ease, opacity .25s ease, padding .25s ease;
+    }
+    .bsi-page .accordion-content.open{
+      max-height:2000px; opacity:1; padding-top:8px; padding-bottom:16px;
+    }
+    .bsi-page .accordion-content p{ white-space:pre-line; margin:0; padding:10px 0 14px; }
+  </style>
+</head>
+
+<body class="bsi-page" data-bsi-cluster="cellulitis">
+  <main class="outer-wrapper">
+    <div class="page-container">
+
+      <button class="back-button" onclick="goTo('skin-soft-tissue.html')">
+        ← Back to Skin &amp; Soft Tissue Infections
+      </button>
+
+      <div class="title-bar">Cellulitis – purulent and/or abscess</div>
+
+      <div class="resistance-tabs" style="display:none;">
+        <button class="resistance-button active-resistance" data-bsi-marker="purulent_abscess">
+          Purulent/Abscess
+        </button>
+      </div>
+
+      <section class="bsi-result">
+        <p class="bsi-summary" style="display:none;">
+          Resistance marker: <strong><span id="bsi-marker-label">Purulent/Abscess</span></strong>
+        </p>
+
+        <div id="bsi-default-regimens">
+          <button class="accordion-header" type="button">Recommended regimen</button>
+          <div class="accordion-content"><p id="bsi-recommended-text"></p></div>
+
+          <button class="accordion-header" type="button">Alternative regimen</button>
+          <div class="accordion-content"><p id="bsi-alternative-text"></p></div>
+        </div>
+
+        <!-- ✅ Special UI -->
+        <div id="bsi-purulent-regimens" style="display:none;">
+          <button class="accordion-header" type="button">Oral regimens</button>
+          <div class="accordion-content"><p id="pa-oral"></p></div>
+
+          <button class="accordion-header" type="button">Parenteral regimens</button>
+          <div class="accordion-content"><p id="pa-parenteral"></p></div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
