@@ -53,14 +53,16 @@ document.addEventListener("DOMContentLoaded", function () {
       ecoli_klebsiella_proteus: {
         negative: {
           rec:
-            "Ceftriaxone 2 grams every 24 hours ",
+            "Ceftriaxone 2 g Q24H ",
           alt:
-            "Piperacillin/Tazobactam 4.5 grams every 8 hours"
+            "Piperacillin/Tazobactam 4.5 g Q8H"
         },
         ctxm: {
           id_consult: true,
-          rec:
-            "Ertapenem 1 gram every 24 hours OR Meropenem 1 gram every 8 hours",
+          rec:`
+            Ertapenem 1 g Q24H  
+            OR 
+            Meropenem 1 g Q8H`,
           alt:
             "ID consult"
         },
@@ -110,16 +112,16 @@ document.addEventListener("DOMContentLoaded", function () {
         negative: {
           id_consult: true,
           rec:
-            "Cefazolin 2 grams every 8 hours + ID consult",
+            "Cefazolin 2 g Q8H + ID consult",
           alt:
             "Nafcillin 12 grams/day + ID consult"
         },
         meca: {
           id_consult: true,
           rec:
-            "Vancomycin + ID consult",
+            "Pharmacy to dose Vancomycin + ID consult",
           alt:
-            "Daptomycin 8-10 mg/kg every 24 hours + ID consult"
+            "Daptomycin 8-10 mg/kg Q24H + ID consult"
         }
       },
 
@@ -127,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         na: {
           id_consult: true,
           rec:
-            "Cefazolin 2 grams every 8 hours + ID consult",
+            "Cefazolin 2 g Q8H + ID consult",
           alt:
             "Nafcillin 12 grams/day + ID consult"
         }
@@ -517,12 +519,72 @@ document.addEventListener("DOMContentLoaded", function () {
       },
 
 
-      nonpurulentcellulitismrsa: {
-        na: {
-          rec: "Ceftriaxone + Vancomycin for 5-7 days", 
-          alt: "Ampicillin/sulbactam + Vancomycin for 5-7 days"
-        }
+      cellulitis: {
+      nonpurulent: {
+        oral: {
+          no_mrsa: "Cephalexin 500 mg PO Q6H",          
+          mrsa: 
+          `
+          Trimethoprim-Sulfamethoxazole two 800/160 mg tabs BID
+          OR 
+          Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID 
+          OR 
+          Linezolid 600 mg PO BID`              
+        },
+        parenteral: {
+          no_mrsa: `Cefazolin 1-2 g IV Q8H
+          OR
+          Ampicillin-sulbactam 1.5 g IV Q6H`,
+          mrsa: `Pharmacy to dose Vancomycin
+          OR
+          Daptomycin 4-6 mg/kg IV Q24H 
+          OR
+          Linezolid 600 mg IV BID
+          OR
+          Oritavancin 1200 mg IV x 1 dose (Restricted to ER)`              
+          },
+          septic: {
+            recommended: "Cefepime 2 g IV Q8H + Pharmacy to dose Vancomycin",
+            hx_esbl: "Meropenem 1 g IV Q8H + Pharmacy to dose Vancomycin",           
+            severe_pcn_allergy: 
+            `
+            Levofloxacin 750 mg IV Q24H + Pharmacy to dose Vancomycin
+            OR 
+            Aztreonam 2 g IV Q8H + Pharmacy to dose Vancomycin` 
+          },
+        },
+
+      purulent_abscess: {
+        oral:`Trimethopreim-Sulfamethoxazole two 800/160 mg tabs BID
+        OR
+        Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID
+        OR 
+        Linezolid 600 mg PO BID` ,
+        parenteral:`Pharmacy to dose Vancomycin 
+        OR
+        Daptomycin 6 mg/kg IV Q24H 
+        OR 
+        Linezolid 600 mg IV BID`
+        },
+
+        necrotizing_fascitis: {
+        rec: `
+        Piperacillin-Tazobactam 3.375 g IV Q6H
+        +
+        Pharmacy to Dose Vancomycin
+        +
+        Clindamycin 900 mg IV Q8H 
+        `,
+        alt: `
+        Meropenem 1 g IV Q8H
+        +
+        Pharmacy to Dose Vancomycin
+        +
+        Clindamycin 900 mg IV Q8H 
+        `,
+        },
       }
+        
 
     };
 
@@ -604,6 +666,60 @@ function renderPhaseAccordions(wrap, phases, prefix) {
 
 
 
+function renderNonpurulentCellulitisUI(data, withRestricted) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-nonpurulent-regimens");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data.restricted_for_id_only);
+  };
+
+  set("np-oral-no-mrsa", data?.oral?.no_mrsa);
+  set("np-oral-mrsa", data?.oral?.mrsa);
+
+  set("np-parenteral-no-mrsa", data?.parenteral?.no_mrsa);
+  set("np-parenteral-mrsa", data?.parenteral?.mrsa);
+
+  set("np-septic-recommended", data?.septic?.recommended);
+  set("np-septic-esbl", data?.septic?.hx_esbl);
+  set("np-septic-pcn", data?.septic?.severe_pcn_allergy);
+}
+
+function renderPurulentAbscessUI(data, withRestricted) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const npWrap = document.getElementById("bsi-nonpurulent-regimens");
+  const paWrap = document.getElementById("bsi-purulent-regimens");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (npWrap) npWrap.style.display = "none";
+  if (paWrap) paWrap.style.display = "block";
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  set("pa-oral", data?.oral);
+  set("pa-parenteral", data?.parenteral);
+}
+
+
+function renderDefaultBsiUI() {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const npWrap = document.getElementById("bsi-nonpurulent-regimens");
+  const paWrap = document.getElementById("bsi-purulent-regimens");
+
+  if (defaultWrap) defaultWrap.style.display = "block";
+  if (npWrap) npWrap.style.display = "none";
+  if (paWrap) paWrap.style.display = "none";
+}
+
 
     // Set up click handlers for each resistance marker button
     markerButtons.forEach((btn) => {
@@ -670,6 +786,46 @@ function renderPhaseAccordions(wrap, phases, prefix) {
         const RESTRICTED_FOOTNOTE = "\n\n* Restricted for ID use only";
         const withRestricted = (text, restricted) =>
           restricted ? `${text}${RESTRICTED_FOOTNOTE}` : text;
+
+        // Special case: Non-purulent cellulitis needs Oral/Parenteral/Septic + sub-buttons
+if (
+  clusterId === "cellulitis" &&
+  key === "nonpurulent" &&
+  document.getElementById("bsi-nonpurulent-regimens")
+) {
+  renderNonpurulentCellulitisUI(data, withRestricted);
+
+  // re-linkify if you use it
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
+  // reset accordions (same behavior you already do at end)
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+
+  return; // IMPORTANT: skip the default rec/alt rendering below
+} else {
+  // For purulent/nec fasc (and any other marker), show your normal recommended/alternative UI
+  renderDefaultBsiUI();
+}
+
+
+
+// Special case: Purulent/Abscess needs Oral + Parenteral only
+if (
+  clusterId === "cellulitis" &&
+  key === "purulent_abscess" &&
+  document.getElementById("bsi-purulent-regimens")
+) {
+  renderPurulentAbscessUI(data, withRestricted);
+
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+
+  return;
+}
+
 
 
         const closeInnerAccordions = (root) => {
