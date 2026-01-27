@@ -618,6 +618,36 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }
       },
+
+      animal_bites: {
+        oral: {
+          preferred: "Amoxicillin-clavulanate 875 mg PO BID",
+          alternative: `Metronidazole 500 mg PO Q8H 
+          OR
+          Clindamycin 300-400 mg PO Q8H + Cefuroxime 500 mg PO BID 
+          OR 
+          Doxycycline 100 mg PO BID 
+          OR 
+          Sulfamethoxazole-trimethoprim one 800/160 mg tablet PO BID
+          OR 
+          Levofloxacin 750 mg PO Q24H `,
+          mrsa: `Amoxicillin-clavulanate 875 mg PO BID + Sulfamethoxazole-trimethoprim one 800/160 mg tablet PO BID
+          OR 
+          Doxycycline 100 mg PO BID`,
+          duration: ""
+        },
+        parenteral: {
+          // This is the note that should appear ONLY when Parenteral is selected
+          note:
+            "Parenteral criteria (examples): sepsis, rapidly progressing erythema, progression after 48 hours of oral antibiotics, deep infection/abscess.",
+          preferred: `Ampicillin-sulbactam 3 g IV Q6H 
+          OR
+          Ceftriaxone 2 g Q24H + Metronidazole 500 mg IV Q8H `,
+          severe_mrsa: "ADD Pharmacy to Dose Vancomycin",
+          duration: "Total duration 5-14 days (1-2 days after symptoms resolution)"
+        }
+      },
+
         
 
     };
@@ -723,6 +753,42 @@ function renderNonpurulentCellulitisUI(data, withRestricted) {
   set("np-septic-esbl", data?.septic?.hx_esbl);
   set("np-septic-pcn", data?.septic?.severe_pcn_allergy);
 }
+
+
+function renderAnimalBitesUI(data, withRestricted, activeKey) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-animalbites-regimens");
+  const oralWrap = document.getElementById("ab-oral-wrap");
+  const parWrap = document.getElementById("ab-par-wrap");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  if (oralWrap) oralWrap.style.display = activeKey === "oral" ? "block" : "none";
+  if (parWrap) parWrap.style.display = activeKey === "parenteral" ? "block" : "none";
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (activeKey === "oral") {
+    set("ab-oral-preferred", data?.preferred);
+    set("ab-oral-alternative", data?.alternative);
+    set("ab-oral-mrsa", data?.mrsa);
+    set("ab-oral-duration", data?.duration);
+  }
+
+  if (activeKey === "parenteral") {
+    set("ab-par-preferred", data?.preferred);
+    set("ab-par-severe-mrsa", data?.severe_mrsa);
+    set("ab-par-duration", data?.duration);
+  }
+}
+
+
+
 
 function renderPurulentAbscessUI(data, withRestricted) {
   const defaultWrap = document.getElementById("bsi-default-regimens");
@@ -865,6 +931,8 @@ function renderDefaultBsiUI() {
         const RESTRICTED_FOOTNOTE = "\n\n* Restricted for ID use only";
         const withRestricted = (text, restricted) =>
           restricted ? `${text}${RESTRICTED_FOOTNOTE}` : text;
+        renderBsiNote(data);
+
 
 
 
@@ -937,6 +1005,23 @@ if (
 }
 
 
+// Special case: Animal bites needs Oral/Parenteral + custom sub-accordions
+if (
+  clusterId === "animal_bites" &&
+  document.getElementById("bsi-animalbites-regimens")
+) {
+  renderAnimalBitesUI(data, withRestricted, key);
+
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+
+  return; // IMPORTANT: skip default rec/alt rendering
+}
+
+
+
 
         const closeInnerAccordions = (root) => {
           if (!root) return;
@@ -945,25 +1030,8 @@ if (
 
         if (data) {
             // ---------- NOTE (optional) ----------
-          if (noteBox) {
-            const parts = [];
+          renderBsiNote(data);
 
-            if (data.id_consult) parts.push("Order ID Consult");
-
-            if (Array.isArray(data.restricted) && data.restricted.length) {
-              parts.push("Restricted: " + data.restricted.join(", ") + ".");
-            }
-
-            const noteText = parts.join(" ");
-
-            if (noteText) {
-              noteBox.textContent = noteText;
-              noteBox.style.display = "block";
-            } else {
-              noteBox.textContent = "";
-              noteBox.style.display = "none";
-            }
-          }
 
           // ---------- Recommended ----------
           const recIsPhased =
