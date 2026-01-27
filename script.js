@@ -702,6 +702,50 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
 
+      iai_cholecystitis_cholangitis: {
+        community_acquired: {
+          low_risk: {
+            single_agent: `Piperacillin-Tazobactam 3.375 g IV Q6H `,
+            combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following: 
+            
+            Cefazolin 1-2 g IV Q8H 
+            OR
+            Cefuroxime 1.5 g IV Q8H
+            OR
+            Ceftriaxon 2 g IV Q24H 
+            OR
+            Ciprofloxacin 400 mg IV Q12H
+            OR
+            Ciprofloxacin 500 mg PO Q12H
+            OR
+            Levofloxacin 750 mg IV/PO Q24H`,
+          },
+          high_risk: {
+            single_agent: `Piperacillin-tazobactam 4.5 g IV Q6H 
+            OR 
+            Meropenem 1 g IV Q8H `,
+            combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following:
+            
+            Cefepime 2 g IV Q8H 
+            OR 
+            Ceftazidime 2 g IV Q8H `,
+          }
+        },
+
+        healthcare_associated: {
+          note:"Provide Enterococcal Coverage in Post-Op infections, Immunocompromising conditions, valvular heart disease, or prosthetic intravascular materials",
+          single_agent: `Piperacillin-tazobactam 4.5 g IV Q6H 
+            OR 
+            Meropenem 1 g IV Q8H `,
+          combination: `Cefepime 2 g IV Q8H OR Ceftazidime 2 g IV Q8H
+           + 
+           Metronidazole 500 mg IV Q8H
+          + 
+           Ampicillin 2 g IV Q4H OR Pharmacy to Dose Vancomycin`,
+        }
+      },
+
+
 
         
 
@@ -902,6 +946,41 @@ function renderIaiColitisUI(data, withRestricted, key) {
   }
 }
 
+function renderIaiColitisCholangitisUI(data, withRestricted, key) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-iai-colangitis");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  // show/hide the 2 main sections
+  const show = (id, on) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = on ? "block" : "none";
+  };
+
+  show("cc-ca-wrap", key === "community_acquired");
+  show("cc-ha-wrap", key === "healthcare_associated");
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (key === "community_acquired") {
+    set("cc-ca-low-single", data?.low_risk?.single_agent);
+    set("cc-ca-low-combo", data?.low_risk?.combination);
+
+    set("cc-ca-high-single", data?.high_risk?.single_agent);
+    set("cc-ca-high-combo", data?.high_risk?.combination);
+  }
+
+  if (key === "healthcare_associated") {
+    set("cc-ha-single", data?.single_agent);
+    set("cc-ha-combo", data?.combination);
+  }
+}
 
 
 
@@ -1081,6 +1160,9 @@ if (
   return;
 }
 
+
+
+
 // Special case: Non-purulent cellulitis needs Oral/Parenteral/Septic + sub-buttons
 if (
   clusterId === "cellulitis" &&
@@ -1117,6 +1199,16 @@ if (
   return;
 }
 
+if (
+  clusterId === "iai_cholecystitis_cholangitis" &&
+  document.getElementById("bsi-iai-colangitis")
+) {
+  renderIaiColitisCholangitisUI(data, withRestricted, key);
+
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
 
 
 
@@ -1262,6 +1354,11 @@ if (
     }
   }
 });
+
+
+
+
+
 
   
   
