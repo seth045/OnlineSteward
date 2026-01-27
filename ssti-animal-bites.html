@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animal Bites</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
+
+  <style>
+    .bsi-page .accordion-header{
+      display:block; width:100%; max-width:600px;
+      margin:14px auto 0; padding:14px 16px;
+      background:#f9fafb; border-radius:6px 6px 0 0;
+      border:1px solid var(--border-subtle);
+      border-left:4px solid var(--integris-teal);
+      font-weight:600; cursor:pointer;
+    }
+    .bsi-page .accordion-content{
+      display:block; width:100%; max-width:600px;
+      margin:0 auto; overflow:hidden;
+      max-height:0; opacity:0; padding:0 16px;
+      background:#fff;
+      border-left:1px solid var(--border-subtle);
+      border-right:1px solid var(--border-subtle);
+      border-bottom:1px solid var(--border-subtle);
+      border-radius:0 0 6px 6px;
+      transition:max-height .25s ease, opacity .25s ease, padding .25s ease;
+    }
+    .bsi-page .accordion-content.open{
+      max-height:2000px; opacity:1; padding-top:8px; padding-bottom:16px;
+    }
+    .bsi-page .accordion-content p{ white-space:pre-line; margin:0; padding:10px 0 14px; }
+  </style>
+</head>
+
+<!-- IMPORTANT: This tells script.js which regimens to use -->
+<body class="bsi-page" data-bsi-cluster="animal_bites">
+  <header class="site-header">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
+      <div class="brand-mark">OS</div>
+      <div class="brand-text">
+        <div class="brand-name">OnlineSteward</div>
+        <div class="brand-subtitle">Antimicrobial Guide</div>
+      </div>
+    </a>
+  </header>
+
+  <main class="outer-wrapper">
+    <div class="page-container">
+      <button class="back-button" onclick="goTo('skin-soft-tissue.html')">
+        ← Back to Skin and Soft Tissue Infections
+      </button>
+
+      <div class="title-bar">Animal Bites</div>
+
+      <div class="resistance-tabs">
+        <button class="resistance-button active-resistance" data-bsi-marker="oral">
+          Oral regimens
+        </button>
+        <button class="resistance-button" data-bsi-marker="parenteral">
+          Parenteral regimens
+        </button>
+      </div>
+
+      <section class="bsi-result">
+        <p class="bsi-summary">
+          Selection:
+          <strong><span id="bsi-marker-label">Oral regimens</span></strong>
+        </p>
+
+        <!-- KEEP this default block so script.js always has these IDs available -->
+        <div id="bsi-default-regimens">
+          <button class="accordion-header" type="button" aria-expanded="false">
+            Recommended regimen
+          </button>
+          <div class="accordion-content">
+            <p id="bsi-recommended-text"></p>
+          </div>
+
+          <button class="accordion-header" type="button" aria-expanded="false">
+            Alternative regimen
+          </button>
+          <div class="accordion-content">
+            <p id="bsi-alternative-text"></p>
+
+            <div id="bsi-alt-phases" style="display:none;">
+              <button class="accordion-header" type="button" aria-expanded="false">Induction</button>
+              <div class="accordion-content"><p id="bsi-alt-induction"></p></div>
+
+              <button class="accordion-header" type="button" aria-expanded="false">Consolidation</button>
+              <div class="accordion-content"><p id="bsi-alt-consolidation"></p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Animal Bites UI -->
+        <div id="bsi-animalbites-regimens" style="display:none;">
+          <!-- Oral -->
+          <div id="ab-oral-wrap" style="display:none;">
+            <button class="accordion-header" type="button" aria-expanded="false">Preferred</button>
+            <div class="accordion-content"><p id="ab-oral-preferred"></p></div>
+
+            <button class="accordion-header" type="button" aria-expanded="false">Alternative</button>
+            <div class="accordion-content"><p id="ab-oral-alternative"></p></div>
+
+            <button class="accordion-header" type="button" aria-expanded="false">MRSA risk factors</button>
+            <div class="accordion-content"><p id="ab-oral-mrsa"></p></div>
+
+            <!-- Duration (Oral) -->
+            <button class="accordion-header" type="button" aria-expanded="false">Duration</button>
+            <div class="accordion-content">
+
+            <button class="accordion-header" type="button" aria-expanded="false">Prophylaxis duration</button>
+            <div class="accordion-content">
+                <p style="white-space: pre-line;">Duration is usually 3–5 days for prophylaxis.</p>
+            </div>
+
+            <button class="accordion-header" type="button" aria-expanded="false">Treatment duration</button>
+            <div class="accordion-content">
+                <p style="white-space: pre-line;">Duration is usually 5–14 days for treatment.</p>
+            </div>
+
+</div>
+
+          </div>
+
+          <!-- Parenteral -->
+          <div id="ab-par-wrap" style="display:none;">
+            <button class="accordion-header" type="button" aria-expanded="false">Preferred</button>
+            <div class="accordion-content"><p id="ab-par-preferred"></p></div>
+
+            <button class="accordion-header" type="button" aria-expanded="false">Severe illness / abscess / MRSA risk factors</button>
+            <div class="accordion-content"><p id="ab-par-severe-mrsa"></p></div>
+
+            <button class="accordion-header" type="button" aria-expanded="false">Duration</button>
+            <div class="accordion-content"><p id="ab-par-duration"></p></div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
