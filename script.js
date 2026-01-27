@@ -648,6 +648,61 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
 
+      iai_colitis_enteritis: {
+        general: {
+          note:"Generally antibiotics are not indicated unless any of the following sections above apply",
+          text: "Antibiotics not indicated"
+        },
+        severe_infections: {
+          note:"Example criteria for severe infection: fever, hypovolemia, >6 loose stools within 24 hours, bloody stools, high risk patient)",
+          text: `Ciprofloxacin 500 mg PO BID x 3 days
+          OR
+          Azithromycin 500 mg PO Q24H x 3 days (Preferred in those with fever or dysentery)`
+        },
+        travel_related: {
+          general: "Ciprofloxacin 500 mg PO x 1-3 days",
+          south_se_asia: `Azithromycin 500 mg PO x 3 days 
+          OR
+          Azithromycin 1000 mg PO x 1`
+        },
+        symptoms_gt_7_days: {
+          text: `Metronidazole 500 mg PO TID x 7-10 days 
+          OR
+          Rifaximin 200 mg PO TID x 3 days`
+        },
+        suspected_cdiffe: {
+          note:"Consider initiating empiric therapy if there is an anticipated delay in labratory confirmation or in fulminant infections",
+          initial_episode: {
+            preferred: "Vancomycin 125 mg PO QID x 10 days",
+            alternative: `Fidaxomicin 200 mg PO BID x 10 days
+            OR
+            Metronidazole 500 mg PO TID x 10-14 days (use if vancomycin and fidaxomicin are not available)`
+          },
+          first_recurrence: {
+            preferred: `Fidaxomicin 200 mg PO BID x 10 days 
+            OR
+            Fidaxomicin 200 mg PO BID x 5 days, then 200 mg PO every other day x 20 days `,
+            alternative: `Vancomycin 125 mg PO QID x 10 days 
+            OR 
+            Vancomycin 125 mg PO QID x 10-14 days, then BID x 7 days, then daily x 7 days, then every 2-3 days for 2-8 weeks`,
+            adjunctive: "Bezlotoxumab 10 mg/kg IV x 1 during administration of PO antibiotics "
+          },
+          subsequent_recurrence: {
+            preferred: `Fidaxomicin 200 mg PO QID x 10 days 
+            OR 
+            Fidaxomicin 200 mg PO BID x 5 days, then 200 mg PO every other day x 20 days 
+            OR Vancomycin 125 mg PO QID x 10 days, then Rifaximin 400 mg PO TID x 20 days
+            OR 
+            Fecal microbiota transplantation`,
+            adjunctive: "Bezlotoxumab 10 mg/kg IV x 1 during administration of PO antibiotics"
+          },
+          fulminant: {
+            text: "Vancomycin 500 mg PO QID + Metronidazole 500 mg IV Q8H"
+          }
+        }
+      },
+
+
         
 
     };
@@ -786,6 +841,67 @@ function renderAnimalBitesUI(data, withRestricted, activeKey) {
     set("ab-par-duration", data?.duration);
   }
 }
+
+
+
+function renderIaiColitisUI(data, withRestricted, key) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-iai-colitis");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  // show/hide each section
+  const show = (id, on) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = on ? "block" : "none";
+  };
+
+  show("iai-general-wrap", key === "general");
+  show("iai-severe-wrap", key === "severe_infections");
+  show("iai-travel-wrap", key === "travel_related");
+  show("iai-sx7-wrap", key === "symptoms_gt_7_days");
+  show("iai-cdiff-wrap", key === "suspected_cdiffe");
+
+  // helper to fill <p> text
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (key === "general") {
+    set("iai-general-text", data?.text);
+  }
+
+  if (key === "severe_infections") {
+    set("iai-severe-text", data?.text);
+  }
+
+  if (key === "travel_related") {
+    set("iai-travel-general", data?.general);
+    set("iai-travel-asia", data?.south_se_asia);
+  }
+
+  if (key === "symptoms_gt_7_days") {
+    set("iai-sx7-text", data?.text);
+  }
+
+  if (key === "suspected_cdiffe") {
+    set("iai-cdiff-initial-preferred", data?.initial_episode?.preferred);
+    set("iai-cdiff-initial-alternative", data?.initial_episode?.alternative);
+
+    set("iai-cdiff-first-preferred", data?.first_recurrence?.preferred);
+    set("iai-cdiff-first-alternative", data?.first_recurrence?.alternative);
+    set("iai-cdiff-first-adjunctive", data?.first_recurrence?.adjunctive);
+
+    set("iai-cdiff-sub-preferred", data?.subsequent_recurrence?.preferred);
+    set("iai-cdiff-sub-adjunctive", data?.subsequent_recurrence?.adjunctive);
+
+    set("iai-cdiff-fulminant", data?.fulminant?.text);
+  }
+}
+
 
 
 
@@ -987,6 +1103,22 @@ if (
 }
 
 
+// Special case: IAI - infectious colitis/enteritis (nested tabs)
+if (
+  clusterId === "iai_colitis_enteritis" &&
+  document.getElementById("bsi-iai-colitis")
+) {
+  renderIaiColitisUI(data, withRestricted, key);
+
+  // close any open accordion panels after switching tabs
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+
+  return;
+}
+
+
+
 
 // Special case: Purulent/Abscess needs Oral + Parenteral only
 if (
@@ -1130,5 +1262,6 @@ if (
     }
   }
 });
+
   
   
