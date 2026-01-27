@@ -745,6 +745,41 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       },
 
+      iai_sbp: {
+        primary: {
+          preferred: `Ceftriaxone 2 g IV Q24H 
+          OR 
+          Cefotaxime 2 g IV Q8H (*Non-formulary) `,
+          critically_ill_mdr: `Meropenem 1 g IV Q8H`,
+          add_on_mrsa: `Pharmacy to Dose Vancomycin 
+          OR
+          Daptomycin 4-6 mg/kg IV Q24H (Use if known colonization or previous infection by VRE)`
+        },
+
+        secondary: {
+          mild_moderate: {
+            preferred: `Ceftriaxone 2 g IV Q24H
+            + 
+            Metronidazole 500 mg IV Q8H `,
+            alternative: `Metronidazole 500 mg IV Q8H PLUS one of the following: 
+            
+            3rd or 4th generation cephalosporin
+            OR
+            Levofloxacin 750 mg IV/PO Q24H 
+            Or 
+            Ciprofloaxcin 400 mg IV Q12H 
+            OR 
+            Aztreonam 2 g IV Q8H 
+            OR 
+            Ertapenem 1 g IV Q24H`
+          },
+          severe: {
+            preferred: `Piperacillin-tazobactam 3.375 g IV Q6H OR 4.5 g IV Q8H `
+          }
+        }
+      },
+
+
 
 
         
@@ -946,6 +981,42 @@ function renderIaiColitisUI(data, withRestricted, key) {
   }
 }
 
+
+function renderIaiSbpUI(data, withRestricted, key) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-iai-sbp");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  const show = (id, on) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = on ? "block" : "none";
+  };
+
+  show("sbp-primary-wrap", key === "primary");
+  show("sbp-secondary-wrap", key === "secondary");
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (key === "primary") {
+    set("sbp-primary-preferred", data?.preferred);
+    set("sbp-primary-mdr", data?.critically_ill_mdr);
+    set("sbp-primary-mrsa", data?.add_on_mrsa);
+  }
+
+  if (key === "secondary") {
+    set("sbp-secondary-mm-preferred", data?.mild_moderate?.preferred);
+    set("sbp-secondary-mm-alternative", data?.mild_moderate?.alternative);
+    set("sbp-secondary-severe-preferred", data?.severe?.preferred);
+  }
+}
+
+
 function renderIaiColitisCholangitisUI(data, withRestricted, key) {
   const defaultWrap = document.getElementById("bsi-default-regimens");
   const specialWrap = document.getElementById("bsi-iai-colangitis");
@@ -1089,6 +1160,27 @@ function renderDefaultBsiUI() {
             summary.insertAdjacentElement("afterend", noteBox);
           }
         }
+        // ✅ Nested-note support (for accordion buttons with data-note="...")
+        // This lets nested accordions (like SBP -> Add-on MRSA Coverage) show a note banner too.
+        if (!window.__bsiNestedNoteListenerInstalled) {
+          window.__bsiNestedNoteListenerInstalled = true;
+
+          document.addEventListener("click", (e) => {
+            const btn = e.target.closest(".accordion-header[data-note]");
+            if (!btn) return;
+
+            const nb = document.getElementById("bsi-note");
+            if (!nb) return;
+
+            nb.textContent = btn.dataset.note || "";
+            nb.style.display = nb.textContent.trim() ? "block" : "none";
+          });
+        }
+
+
+
+
+
 
 
         function renderBsiNote(data) {
@@ -1160,6 +1252,17 @@ if (
   return;
 }
 
+// Special case: IAI - Spontaneous Bacterial Peritonitis (SBP)
+if (
+  clusterId === "iai_sbp" &&
+  document.getElementById("bsi-iai-sbp")
+) {
+  renderIaiSbpUI(data, withRestricted, key);
+
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
 
 
 
