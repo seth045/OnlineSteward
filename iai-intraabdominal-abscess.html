@@ -1,145 +1,136 @@
-<!-- =========================
-iai-intraabdominal-abscess_UPDATED.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intra-abdominal Abscess</title>
+  <title>Intraabdominal Abscess</title>
+
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bacteria-style.css" />
+
+  <!-- IMPORTANT:
+       Your global CSS sometimes sets .accordion-content { display:none; }
+       This scoped override restores the BSI accordion behavior (same fix you used elsewhere). -->
+  <style>
+    .bsi-page .accordion-header{
+      display:block; width:100%; max-width:600px;
+      margin:14px auto 0; padding:14px 16px;
+      background:#f9fafb; border-radius:6px 6px 0 0;
+      border:1px solid var(--border-subtle);
+      border-left:4px solid var(--integris-teal);
+      font-weight:600; cursor:pointer;
+    }
+    .bsi-page .accordion-content{
+      display:block; width:100%; max-width:600px;
+      margin:0 auto; overflow:hidden;
+      max-height:0; opacity:0; padding:0 16px;
+      background:#fff;
+      border-left:1px solid var(--border-subtle);
+      border-right:1px solid var(--border-subtle);
+      border-bottom:1px solid var(--border-subtle);
+      border-radius:0 0 6px 6px;
+      transition:max-height .25s ease, opacity .25s ease, padding .25s ease;
+    }
+    .bsi-page .accordion-content.open{
+      max-height: 120000px; /* avoids clipping on mobile */
+      opacity:1; padding-top:8px; padding-bottom:16px;
+    }
+    .bsi-page .accordion-content p{ white-space:pre-line; margin:0; padding:10px 0 14px; }
+  </style>
 </head>
 
-<body class="empiric-page">
+<!-- IMPORTANT: cluster ID must match what we add to script.js -->
+<body class="bsi-page" data-bsi-cluster="iai_intraabdominal_abscess">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
 
-  <main class="detail-shell">
-    <div class="detail-topbar left-align">
-      <a class="detail-back" href="intraabdominal-infections.html" aria-label="Back to intra-abdominal infections">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <h1 class="detail-title">Intra-abdominal Abscess</h1>
-    </div>
+  <main class="outer-wrapper">
+    <div class="page-container">
 
-    <h2 class="detail-section-title">Treatment</h2>
+      <!-- CHANGE THIS to your actual IAI landing page file name if different -->
+      <button class="back-button" onclick="goTo('intraabdominal-infections.html')">
+        ← Back to Intraabdominal Infections
+      </button>
 
-    <div class="accordion-card" id="iai-accordion">
-      <!-- Common organisms -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Common organisms</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+      <div class="title-bar">Intraabdominal Abscess</div>
+
+      <div class="resistance-tabs">
+        <button class="resistance-button active-resistance" data-bsi-marker="mild_moderate">
+          Mild-moderate infection
         </button>
-
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Escherichia coli</li>
-              <li>Klebsiella species</li>
-              <li>Bacteroides fragilis</li>
-              <li>Streptococcus species</li>
-              <li>Enterococcus species</li>
-            </ul>
-          </div>
-        </div>
+        <button class="resistance-button" data-bsi-marker="severe_healthcare">
+          Severe and/or healthcare associated
+        </button>
+        <button class="resistance-button" data-bsi-marker="duration">
+          Duration
+        </button>
       </div>
 
-      <!-- Recommended regimen -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 12l2 2 4-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 4h10a2 2 0 0 1 2 2v14H5V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Recommended regimen</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
+      <section class="bsi-result">
+        <p class="bsi-summary">
+          Selection:
+          <strong><span id="bsi-marker-label">Mild-moderate infection</span></strong>
+        </p>
 
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Piperacillin/Tazobactam</li>
-            </ul>
-            
-            <p class="acc-note">Duration depends on source control</p>
+        <!-- NOTE block (script.js can show/hide/fill this when data.note exists) -->
+        <div id="bsi-note-wrap" class="note-wrap" style="display:none; max-width:600px; margin:12px auto 0;">
+          <div class="note-box" style="border:1px solid var(--border-subtle); border-left:4px solid #f59e0b; background:#fffbeb; padding:10px 12px; border-radius:8px;">
+            <strong style="display:block; margin-bottom:6px;">Note</strong>
+            <div id="bsi-note-text" style="white-space:pre-line;"></div>
           </div>
         </div>
-      </div>
 
-      <!-- Alternative regimen -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 6v6l4 2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Alternative regimen</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
+        <!-- KEEP default block so script.js doesn’t break on pages that expect it -->
+        <div id="bsi-default-regimens">
+          <button class="accordion-header" type="button">Recommended regimen</button>
+          <div class="accordion-content"><p id="bsi-recommended-text"></p></div>
 
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Ceftriaxone + Metronidazole</li>
-            </ul>
-            <p class="acc-note">Duration depends on source control </p>
-      
-          </div>
+          <button class="accordion-header" type="button">Alternative regimen</button>
+          <div class="accordion-content"><p id="bsi-alternative-text"></p></div>
         </div>
-      </div>
+
+        <!-- SPECIAL WRAP for this page -->
+        <div id="bsi-iai-abscess" style="display:none;">
+
+          <!-- Mild-Moderate -->
+          <div id="abs-mm-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Single agent regimen</button>
+            <div class="accordion-content"><p id="abs-mm-single"></p></div>
+
+            <button class="accordion-header" type="button">Combination regimen</button>
+            <div class="accordion-content"><p id="abs-mm-combo"></p></div>
+          </div>
+
+          <!-- Severe / Healthcare -->
+          <div id="abs-severe-wrap" style="display:none;">
+            <button class="accordion-header" type="button" data-note="Reserve Meropenem for those at risk for ESBL-producing organism">Single agent regimen</button>
+            <div class="accordion-content"><p id="abs-sev-single"></p></div>
+
+            <button class="accordion-header" type="button" data-note="Consider adding Vancomycin in those with healthcare associated infection and/or colonization of MRSA">Combination regimen</button>
+            <div class="accordion-content"><p id="abs-sev-combo"></p></div>
+          </div>
+
+          <!-- Duration -->
+          <div id="abs-duration-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Duration</button>
+            <div class="accordion-content"><p id="abs-duration-text"></p></div>
+          </div>
+
+        </div>
+      </section>
     </div>
   </main>
 
-  <script src="script.js"></script>
-
-  <!-- Accordion behavior (matches the other updated IAI pages) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".acc-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const panel = btn.nextElementSibling;
-          if (!panel) return;
-
-          const isExpanded = btn.getAttribute("aria-expanded") === "true";
-          btn.setAttribute("aria-expanded", String(!isExpanded));
-          panel.hidden = isExpanded;
-        });
-      });
-    });
-  </script>
-
+<script src="script.js" defer></script>
   <script src="bacteria-script.js" defer></script>
-<script src="empiric_abx_regimen_links.js" defer></script>
+  <script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
+
