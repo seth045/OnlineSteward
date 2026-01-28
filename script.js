@@ -8,6 +8,22 @@ function goHome() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    // ===== Mobile fix: make dynamically-created antibiotic links always navigate (iOS Safari) =====
+  // Your linkifier wraps antibiotic names with <a class="abx-link" href="antibiotic.html?name=...">
+  // iOS can ignore taps inside overflow/animated accordions, so we force navigation.
+  document.addEventListener(
+    "pointerup",
+    (e) => {
+      const a = e.target.closest("a.abx-link");
+      if (!a) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      window.location.href = a.getAttribute("href");
+    },
+    { passive: false }
+  );
+
   // ========= ACCORDION BEHAVIOR (all pages) =========
   const headers = document.querySelectorAll(".accordion-header");
 
