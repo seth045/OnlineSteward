@@ -1,6 +1,3 @@
-<!-- =========================
-iai-diverticulitis_UPDATED.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,137 +5,147 @@ iai-diverticulitis_UPDATED.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diverticulitis</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Same accordion CSS you’ve been using on working pages -->
+  <style>
+    .bsi-page .accordion-header{
+      display:block; width:100%; max-width:600px;
+      margin:14px auto 0; padding:14px 16px;
+      background:#f9fafb; border-radius:6px 6px 0 0;
+      border:1px solid var(--border-subtle);
+      border-left:4px solid var(--integris-teal);
+      font-weight:600; cursor:pointer;
+    }
+    .bsi-page .accordion-content{
+      display:block; width:100%; max-width:600px;
+      margin:0 auto; overflow:hidden;
+      max-height:0; opacity:0; padding:0 16px;
+      background:#fff;
+      border-left:1px solid var(--border-subtle);
+      border-right:1px solid var(--border-subtle);
+      border-bottom:1px solid var(--border-subtle);
+      border-radius:0 0 6px 6px;
+      transition:max-height .25s ease, opacity .25s ease, padding .25s ease;
+    }
+    .bsi-page .accordion-content.open{
+      max-height: 120000px; /* avoids clipping on mobile */
+      opacity:1; padding-top:8px; padding-bottom:16px;
+    }
+    .bsi-page .accordion-content p{ white-space:pre-line; margin:0; padding:10px 0 14px; }
+  </style>
 </head>
 
-<body class="empiric-page">
+<body class="bsi-page" data-bsi-cluster="iai_diverticulitis">
   <header class="site-header">
-    <div class="site-header-inner">
+    <a class="site-header-inner site-header-link" href="index.html" aria-label="Back to Home">
       <div class="brand-mark">OS</div>
       <div class="brand-text">
         <div class="brand-name">OnlineSteward</div>
         <div class="brand-subtitle">Antimicrobial Guide</div>
       </div>
-    </div>
+    </a>
   </header>
+  <main class="outer-wrapper">
+    <div class="page-container">
 
-  <main class="detail-shell">
-    <div class="detail-topbar left-align">
-      <a class="detail-back" href="intraabdominal-infections.html" aria-label="Back to intra-abdominal infections">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <h1 class="detail-title">Diverticulitis</h1>
-    </div>
+      <button class="back-button" onclick="goTo('intraabdominal-infections.html')">
+        ← Back to Intra-abdominal infections
+      </button>
 
-    <h2 class="detail-section-title">Treatment</h2>
+      <div class="title-bar">Diverticulitis</div>
 
-    <div class="accordion-card" id="iai-accordion">
-      <!-- Common organisms -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 2v20M2 12h20" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Common organisms</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+      <!-- TOP TABS -->
+      <div class="resistance-tabs">
+        <button class="resistance-button active-resistance" data-bsi-marker="community_acquired">
+          Community acquired
         </button>
-
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Escherichia coli</li>
-              <li>Klebsiella species</li>
-              <li>Bacteroides fragilis</li>
-              <li>Streptococcus species</li>
-              <li>Enterococcus species</li>
-            </ul>
-          </div>
-        </div>
+        <button class="resistance-button" data-bsi-marker="hospital_acquired">
+          Hospital acquired
+        </button>
+        <button class="resistance-button" data-bsi-marker="oral_regimens">
+          Oral regimens
+        </button>
+        <button class="resistance-button" data-bsi-marker="duration">
+          Duration
+        </button>
       </div>
 
-      <!-- Recommended regimen -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 12l2 2 4-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 4h10a2 2 0 0 1 2 2v14H5V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Recommended regimen</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
+      <section class="bsi-result">
+        <p class="bsi-summary">
+          Selection: <strong><span id="bsi-marker-label">Community acquired</span></strong>
+        </p>
 
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Piperacillin/Tazobactam for 4 - 7 days</li>
-            </ul>
-            
-          </div>
+        <!-- keep hidden default block so script.js never errors -->
+        <div id="bsi-default-regimens" style="display:none;">
+          <button class="accordion-header" type="button">Recommended regimen</button>
+          <div class="accordion-content"><p id="bsi-recommended-text"></p></div>
+
+          <button class="accordion-header" type="button">Alternative regimen</button>
+          <div class="accordion-content"><p id="bsi-alternative-text"></p></div>
         </div>
-      </div>
 
-      <!-- Alternative regimen -->
-      <div class="acc-item">
-        <button class="acc-btn" type="button" aria-expanded="false">
-          <span class="acc-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 6v6l4 2" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M21 12a9 9 0 1 1-9-9 9 9 0 0 1 9 9z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-          <span class="acc-label">Alternative regimen</span>
-          <span class="acc-chevron" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
+        <!-- SPECIAL LAYOUT -->
+        <div id="bsi-iai-diverticulitis" style="display:none;">
 
-        <div class="acc-panel" hidden>
-          <div class="acc-content">
-            <ul>
-              <li>Ceftriaxone + Metronidazole for 4 - 7 days</li>
-            </ul>
-            
+          <!-- COMMUNITY ACQUIRED -->
+          <div id="div-ca-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Low risk</button>
+            <div class="accordion-content">
+              <button class="accordion-header" type="button">Single agent</button>
+              <div class="accordion-content"><p id="div-ca-low-single"></p></div>
+
+              <button class="accordion-header" type="button">Combination regimen</button>
+              <div class="accordion-content"><p id="div-ca-low-combo"></p></div>
+            </div>
+
+            <button class="accordion-header" type="button" data-note="High-risk for adverse outcomes or antimicrobial resistance">High risk</button>
+            <div class="accordion-content">
+              <button class="accordion-header" type="button">Single agent</button>
+              <div class="accordion-content"><p id="div-ca-high-single"></p></div>
+
+              <button class="accordion-header" type="button">Combination regimen</button>
+              <div class="accordion-content"><p id="div-ca-high-combo"></p></div>
+            </div>
           </div>
+
+          <!-- HOSPITAL ACQUIRED -->
+          <div id="div-ha-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Single agent regimen</button>
+            <div class="accordion-content"><p id="div-ha-single"></p></div>
+
+            <button class="accordion-header" type="button" data-note="Provide enterococcal coverage in post-op infections, immunocompromising conditions, valvular heart disease, or prosthetic intravascular materials">Combination regimen</button>
+            <div class="accordion-content"><p id="div-ha-combo"></p></div>
+          </div>
+
+          <!-- ORAL REGIMENS -->
+          <div id="div-oral-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Single agent regimen</button>
+            <div class="accordion-content"><p id="div-oral-single"></p></div>
+
+            <button class="accordion-header" type="button">Combination regimen</button>
+            <div class="accordion-content"><p id="div-oral-combo"></p></div>
+          </div>
+
+          <!-- DURATION -->
+          <div id="div-duration-wrap" style="display:none;">
+            <button class="accordion-header" type="button">Immunocompetent</button>
+            <div class="accordion-content"><p id="div-dur-immunocompetent"></p></div>
+
+            <button class="accordion-header" type="button">Undrained abscess</button>
+            <div class="accordion-content"><p id="div-dur-undrained"></p></div>
+
+            <button class="accordion-header" type="button">Immunocompromised</button>
+            <div class="accordion-content"><p id="div-dur-immunocompromised"></p></div>
+          </div>
+
         </div>
-      </div>
+      </section>
     </div>
   </main>
 
-  <script src="script.js"></script>
-
-  <!-- Accordion behavior (matches the other updated IAI pages) -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".acc-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const panel = btn.nextElementSibling;
-          if (!panel) return;
-
-          const isExpanded = btn.getAttribute("aria-expanded") === "true";
-          btn.setAttribute("aria-expanded", String(!isExpanded));
-          panel.hidden = isExpanded;
-        });
-      });
-    });
-  </script>
-
+  <script src="script.js" defer></script>
   <script src="bacteria-script.js" defer></script>
-<script src="empiric_abx_regimen_links.js" defer></script>
+  <script src="empiric_abx_regimen_links.js" defer></script>
 </body>
 </html>
 
