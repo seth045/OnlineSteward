@@ -712,7 +712,7 @@ document.addEventListener("DOMContentLoaded", function () {
             OR
             Cefuroxime 1.5 g IV Q8H
             OR
-            Ceftriaxon 2 g IV Q24H 
+            Ceftriaxone 2 g IV Q24H 
             OR
             Ciprofloxacin 400 mg IV Q12H
             OR
@@ -778,6 +778,118 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       },
+
+      iai_diverticulitis: {
+        community_acquired: {
+          low_risk: {
+            single_agent: `Piperacillin-Tazobactam 3.375 g IV Q6H`,
+            combination: `
+            Metronidazole 500 mg IV/PO Q8H PLUS one of the following: 
+            
+            Cefazolin 1-2 g IV Q8H 
+            OR
+            Cefuroxime 1.5 g IV Q8H 
+            OR
+            Ceftriaxone 2 g IV Q24H
+            OR 
+            Cefotaxime 2 g IV Q8H 
+            OR 
+            Ciprofloxacin 400 mg IV Q12H 
+            OR 
+            Ciprofloxacin 500 mg PO Q12H 
+            OR
+            Levofloxacin 750 mg IV/PO Q24H`
+          },
+          high_risk: {
+            single_agent: `Piperacillin-tazobactam 4.5 g IV Q6H
+            OR 
+            Meropenem 1 g IV Q8H `,
+            combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following: 
+            
+            Cefepime 2 g IV Q8H 
+            OR 
+            Ceftazidime 2 g IV Q8H 
+            `
+          }
+        },
+
+        hospital_acquired: {
+          single_agent: `Piperacillin-tazobactam 4.5 g IV Q6H
+            OR 
+            Meropenem 1 g IV Q8H `,
+          combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following: 
+            
+            Cefepime 2 g IV Q8H OR Ceftazidime 2 g IV Q8H 
+            PLUS
+            Ampicillin 2 g IV Q4H OR Pharmacy to Dose Vancomycin`
+        },
+
+        oral_regimens: {
+          note:"3-5 days after initiation of parenteral antibiotics",
+          single_agent: `Amoxicillin-clavulanate 875 mg PO TID
+          OR
+          Amoxicillin-clavulanate extened release 1 g PO BID`,
+          combination: `Metronidazole 500 mg PO TID PLUS one of the following:
+          
+          Ciprofloxacin 500 mg PO BID
+          OR 
+          Levofloxacin 500-750 mg PO Q24H
+          OR 
+          Sulfamethoxazole-trimethoprim one 800/160 mg tablet BID`
+        },
+
+        duration: {
+          immunocompetent: `4-7 days`,
+          undrained_abscess: `7-10 days`,
+          immunocompromised: `10-14 days`
+        }
+      },
+
+      iai_intraabdominal_abscess: {
+        mild_moderate: {
+          single_agent: `Ertapenem 1 g IV Q24H `,
+          combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following: 
+          
+          Cefazolin 2 g IV Q8H 
+          OR
+          Ceftriaxone 2 g IV Q24H 
+          OR 
+          Cefotaxime 2 g IV Q8H 
+          OR 
+          Cefuroxime 1.5 g IV Q8H 
+          OR 
+          Ciprofloxacin 400 mg IV Q12H 
+          OR 
+          Ciprofloxacin 500 mg PO BID
+          OR 
+          Levofloxacin 500-750 mg IV/PO Q24H`,
+        },
+
+        severe_healthcare: {
+          single_agent: `Piperacillin-tazobactam 3.375 g IV Q6H OR 4.5 g IV Q8H
+          OR
+          Meropenem 1 g IV Q8H`,
+          combination: `Metronidazole 500 mg IV/PO Q8H PLUS one of the following:
+          
+          Cefepime 1-2 g IV Q8H 
+          OR 
+          Ceftazidime 2 g IV Q8H 
+          OR 
+          Ciprofloxacin 400 mg IV Q12H 
+          OR 
+          Levofloxacin 500-750 mg IV Q24H 
+          
+          PLUS 
+          
+          Pharmacy to Dose Vancomycin`,
+        },
+
+        duration: {
+          text: `4-7 days after adequate source control `
+        }
+      },
+
+
 
 
 
@@ -982,6 +1094,96 @@ function renderIaiColitisUI(data, withRestricted, key) {
 }
 
 
+function renderIaiAbscessUI(data, withRestricted, key) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-iai-abscess");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  const show = (id, on) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = on ? "block" : "none";
+  };
+
+  // show/hide the three sections
+  show("abs-mm-wrap", key === "mild_moderate");
+  show("abs-severe-wrap", key === "severe_healthcare");
+  show("abs-duration-wrap", key === "duration");
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (key === "mild_moderate") {
+    set("abs-mm-single", data?.single_agent);
+    set("abs-mm-combo", data?.combination);
+  }
+
+  if (key === "severe_healthcare") {
+    set("abs-sev-single", data?.single_agent);
+    set("abs-sev-combo", data?.combination);
+  }
+
+  if (key === "duration") {
+    set("abs-duration-text", data?.text);
+  }
+}
+
+
+
+function renderIaiDiverticulitisUI(data, withRestricted, key) {
+  const defaultWrap = document.getElementById("bsi-default-regimens");
+  const specialWrap = document.getElementById("bsi-iai-diverticulitis");
+
+  if (defaultWrap) defaultWrap.style.display = "none";
+  if (specialWrap) specialWrap.style.display = "block";
+
+  const show = (id, on) => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = on ? "block" : "none";
+  };
+
+  show("div-ca-wrap", key === "community_acquired");
+  show("div-ha-wrap", key === "hospital_acquired");
+  show("div-oral-wrap", key === "oral_regimens");
+  show("div-duration-wrap", key === "duration");
+
+  const set = (id, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = withRestricted(text || "—", data?.restricted_for_id_only);
+  };
+
+  if (key === "community_acquired") {
+    set("div-ca-low-single", data?.low_risk?.single_agent);
+    set("div-ca-low-combo", data?.low_risk?.combination);
+
+    set("div-ca-high-single", data?.high_risk?.single_agent);
+    set("div-ca-high-combo", data?.high_risk?.combination);
+  }
+
+  if (key === "hospital_acquired") {
+    set("div-ha-single", data?.single_agent);
+    set("div-ha-combo", data?.combination);
+  }
+
+  if (key === "oral_regimens") {
+    set("div-oral-single", data?.single_agent);
+    set("div-oral-combo", data?.combination);
+  }
+
+  if (key === "duration") {
+    set("div-dur-immunocompetent", data?.immunocompetent);
+    set("div-dur-undrained", data?.undrained_abscess);
+    set("div-dur-immunocompromised", data?.immunocompromised);
+  }
+}
+
+
+
 function renderIaiSbpUI(data, withRestricted, key) {
   const defaultWrap = document.getElementById("bsi-default-regimens");
   const specialWrap = document.getElementById("bsi-iai-sbp");
@@ -1132,6 +1334,8 @@ function renderDefaultBsiUI() {
 }
 
 
+
+
     // Set up click handlers for each resistance marker button
     markerButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -1166,11 +1370,22 @@ function renderDefaultBsiUI() {
           window.__bsiNestedNoteListenerInstalled = true;
 
           document.addEventListener("click", (e) => {
-            const btn = e.target.closest(".accordion-header[data-note]");
-            if (!btn) return;
+          const btn = e.target.closest(".accordion-header[data-note]");
+          if (!btn) return;
 
-            const nb = document.getElementById("bsi-note");
-            if (!nb) return;
+          const nb = document.getElementById("bsi-note");
+          if (!nb) return;
+
+          // If this click is CLOSING the accordion, hide the note.
+          // (Your accordion logic toggles .open on btn.nextElementSibling)
+          const panel = btn.nextElementSibling;
+          const isOpenAfterClick = panel && panel.classList.contains("open");
+
+          if (!isOpenAfterClick) {
+            nb.textContent = "";
+            nb.style.display = "none";
+            return;
+          }
 
             nb.textContent = btn.dataset.note || "";
             nb.style.display = nb.textContent.trim() ? "block" : "none";
@@ -1252,12 +1467,42 @@ if (
   return;
 }
 
+// Special case: IAI - Intraabdominal Abscess
+if (clusterId === "iai_intraabdominal_abscess" && document.getElementById("bsi-iai-abscess")) {
+  renderIaiAbscessUI(data, withRestricted, key);
+  renderBsiNote(data);
+
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
+
+
+
+// Special case: IAI - Diverticulitis
+if (
+  clusterId === "iai_diverticulitis" &&
+  document.getElementById("bsi-iai-diverticulitis")
+) {
+  renderIaiDiverticulitisUI(data, withRestricted, key);
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
+
+  document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
+  document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
+  return;
+}
+
+
 // Special case: IAI - Spontaneous Bacterial Peritonitis (SBP)
 if (
   clusterId === "iai_sbp" &&
   document.getElementById("bsi-iai-sbp")
 ) {
   renderIaiSbpUI(data, withRestricted, key);
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
 
   document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
   document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
@@ -1294,6 +1539,8 @@ if (
   document.getElementById("bsi-iai-colitis")
 ) {
   renderIaiColitisUI(data, withRestricted, key);
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
 
   // close any open accordion panels after switching tabs
   document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
@@ -1307,6 +1554,8 @@ if (
   document.getElementById("bsi-iai-colangitis")
 ) {
   renderIaiColitisCholangitisUI(data, withRestricted, key);
+  if (window.linkifyBsiRegimens) window.linkifyBsiRegimens();
+
 
   document.querySelectorAll(".accordion-content").forEach((panel) => panel.classList.remove("open"));
   document.querySelectorAll(".accordion-header[aria-expanded]").forEach((h) => h.setAttribute("aria-expanded", "false"));
