@@ -525,7 +525,7 @@ document.addEventListener("DOMContentLoaded", function () {
             no_mrsa: "Cephalexin 500 mg PO Q6H",          
             mrsa: 
             `
-            Trimethoprim-Sulfamethoxazole two 800/160 mg tabs BID
+            Sulfamethoxazole-Trimethoprim two 800/160 mg tabs BID
             OR 
             Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID 
             OR 
@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
 
         purulent_abscess: {
-          oral:`Trimethopreim-Sulfamethoxazole two 800/160 mg tabs BID
+          oral:`Sulfamethoxazole-Trimethoprim two 800/160 mg tabs BID
           OR
           Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID
           OR 
@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Amoxicillin-clavulanate 875 mg PO BID
             OR 
             Clindamycin 300 mg PO TID`,
-            mrsa: `Sulfamethoxazole/Trimethoprim two 800/160 mg tabs BID
+            mrsa: `Sulfamethoxazole-Trimethoprim two 800/160 mg tabs BID
             OR 
             Amoxicillin 875 mg PO BID + Doxycycline 100 mg PO BID`
           },
